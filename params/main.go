@@ -17,7 +17,7 @@ var TestHandler network.HandlerFunc = func(c *network.Context) network.Response 
 	form := c.Request.Form
 	// 存储了post,put参数,在使用之前需要调用ParseForm方法
 	postForm := c.Request.PostForm
-	// 存储了post,put参数,在使用之前需要调用ParseForm方法
+	// 存储了包含了文件上传的表单的post参数,在使用之前需要调用ParseMultipartForm方法
 	multipartForm := c.Request.MultipartForm
 
 	return c.JSON(&struct {
