@@ -5,11 +5,11 @@
 
 * [Request请求结构](#Request请求结构)
 * [模拟请求查看参数](#模拟请求查看参数)
-  1. GET请求
-  2. GET请求带参数 
-  3. POST请求带参数
-  4. POST请求带参数（地址也带参数）
-  5. POST请求带参数并上传文件
+  * [1.GET请求](#1.GET请求)
+  * 2.GET请求带参数 
+  * 3.POST请求带参数
+  * 4.POST请求带参数（地址也带参数）
+  * 5.POST请求带参数并上传文件
 * [About](#About)
 * [License](#License)
 
