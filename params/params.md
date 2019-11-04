@@ -5,11 +5,11 @@
 
 * [Request请求结构](#Request请求结构)
 * [模拟请求查看参数](#模拟请求查看参数)
-  * GET请求
-  * GET请求带参数 
-  * POST请求带参数
-  * POST请求带参数（地址也带参数）
-  * POST请求带参数并上传文件
+  * [GET请求](#GET请求)
+  * [GET请求带参数](#GET请求带参数) 
+  * [POST请求带参数](#POST请求带参数)
+  * [POST请求带参数并且地址也带参数](#POST请求带参数并且地址也带参数)
+  * [POST请求带参数并上传文件](#POST请求带参数并上传文件)
 * [About](#About)
 * [License](#License)
 
@@ -24,7 +24,7 @@
 
 ## 模拟请求查看参数
 
-### 1.GET请求 
+### GET请求 
 
 `curl http://127.0.0.1:8080/test`
 
@@ -43,7 +43,7 @@
 }
 ```
 
-### 2.GET请求带参数 
+### GET请求带参数 
 
 `curl http://127.0.0.1:8080/test?user_name=admin&password=123456`
 
@@ -72,7 +72,7 @@
 }
 ```
 
-### 3.POST请求带参数
+### POST请求带参数
 
 `curl -X POST --data "user_name=admin&password=123456" http://127.0.0.1:8080/test`
 
@@ -103,7 +103,7 @@
 }
 ```
 
-### 4.POST请求带参数（地址也带参数）
+### POST请求带参数并且地址也带参数
 
 `curl -X POST --data "user_name=admin&password=123456" http://127.0.0.1:8080/test?user_name=zhangsan`
 
@@ -137,7 +137,7 @@
 }
 ```
 
-### 5.POST请求带参数并上传文件
+### POST请求带参数并上传文件
 
 ```
 curl -X POST --form user_name=admin --form password=123456 \
