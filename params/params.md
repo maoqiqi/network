@@ -22,6 +22,26 @@
 * `Request.MultipartForm`：存储了包含了文件上传的表单的post参数,在使用之前需要调用ParseMultipartForm方法
 
 
+## GO代码示例
+
+```
+_ = c.Request.ParseForm()
+_ = c.Request.ParseMultipartForm(32 << 20)
+
+// 地址问号后的参数
+queryForm, _ := url.ParseQuery(c.Request.URL.RawQuery)
+// 存储了get,post,put参数,在使用之前需要调用ParseForm方法
+form := c.Request.Form
+// 存储了post,put参数,在使用之前需要调用ParseForm方法
+postForm := c.Request.PostForm
+// 存储了包含了文件上传的表单的post参数,在使用之前需要调用ParseMultipartForm方法
+multipartForm := c.Request.MultipartForm
+```
+
+> **注意:** 其中Request.Form和Request.PostForm必须在调用ParseForm之后,才会有数据,否则则是空数组。
+而Request.FormValue和Request.PostFormValue()无需调用ParseForm就能读取数据。
+
+
 ## 模拟请求查看参数
 
 ### GET请求 
@@ -211,6 +231,36 @@ http://127.0.0.1:8080/test?user_name=zhangsan
         }
     }
 }
+```
+
+### JSON数据
+
+```
+curl -X POST --header 'content-type: application/json' \
+--data '{"user_name":"admin","password":"123456"}' \
+http://127.0.0.1:8080/test?user_name=zhangsan
+```
+
+```
+<?xml version="1.0" encoding="UTF-8"?><root>
+  <user_name>admin</user_name>
+  <password>123456</password>
+</root>
+```
+
+### XML数据
+
+```
+curl -X POST --header "content-type: application/xml" --data \
+'<?xml version="1.0" encoding="UTF-8"?><root>
+  <user_name>admin</user_name>
+  <password>123456</password>
+</root>' \
+http://127.0.0.1:8080/test?user_name=zhangsan
+```
+
+```
+
 ```
 
 
