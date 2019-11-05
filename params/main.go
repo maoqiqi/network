@@ -6,7 +6,6 @@ import (
 	"mime/multipart"
 	"net/url"
 	"network"
-	"time"
 )
 
 var TestHandler network.HandlerFunc = func(c *network.Context) network.Response {
@@ -24,7 +23,7 @@ var TestHandler network.HandlerFunc = func(c *network.Context) network.Response 
 
 	b, _ := ioutil.ReadAll(c.Request.Body)
 
-	c.SetCookie("user_id", "10001", int(60*time.Second), "/", "", false, false)
+	// c.SetCookie("user_id", "10001", int(60*time.Second), "/", "", false, false)
 
 	return c.JSON(&struct {
 		QueryForm     map[string][]string `json:"query_form"`
