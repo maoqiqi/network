@@ -606,7 +606,7 @@ curl -X POST https://www.example.com
 
 
 |参数|描述|
-|:-----|:-----|
+|:---------------------|:---------------------|
 |-A|指定客户端的用户代理标头，即User-Agent。默认为`curl/[version]`。|
 | |`curl -v -A '' http://127.0.0.1:8080/test` 移除User-Agent|
 | |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test` 通过-H更改User-Agent|
