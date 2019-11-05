@@ -607,7 +607,6 @@ curl -X POST https://www.example.com
 
 |参数|描述|
 |:-----|:-----|
-|---------------------|---------------------|
 |-A|指定客户端的用户代理标头，即User-Agent。默认为`curl/[version]`。|
 | |`curl -v -A '' http://127.0.0.1:8080/test` 移除User-Agent|
 | |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test` 通过-H更改User-Agent|
@@ -624,10 +623,31 @@ curl -X POST https://www.example.com
 |--data-urlencode|等同于`-d`,发送POST请求的数据体,区别在于会自动将发送的数据进行URL编码。|
 | |`curl -v --data-urlencode 'user_name=ad min&password=123456' http://127.0.0.1:8080/test`|
 | |上面代码中,发送的数据`user_name=ad min&password=123456`之间有一个空格,需要进行URL编码。|
-|-e||
-|||
-|||
-|||
+|-e|用来设置标头Referer,表示请求的来源|
+| |`curl -v -e 'http://127.0.0.1:8080/test' http://127.0.0.1:8080/test`|
+| |`curl -v -H 'Referer: http://127.0.0.1:8080/test'  http://127.0.0.1:8080/test` 通过-H设置Referer|
+|-F/--file|向服务器上传二进制文件|
+| |`curl -v -F 'file=@logo.png'  http://127.0.0.1:8080/test`|
+| |使用-F参数以后,请求会自动加上标头`Content-Type: multipart/form-data`。|
+| |`curl -v -F 'file=@logo.png;type=image/png'  http://127.0.0.1:8080/test` 指定MIME类型|
+| |上面命令指定MIME类型为`image/png`,否则会把MIME类型设为`application/octet-stream`。|
+| |`curl -v -F 'file=@logo.png;filename=test.png;type=image/png'  http://127.0.0.1:8080/test 指定文件名`|
+|-G|构造URL的查询字符串|
+| |`curl -v -G -d user_name=admin -d password=123456 http://127.0.0.1:8080/test`|
+| |`curl -v -G -d 'user_name=admin&password=123456' http://127.0.0.1:8080/test`|
+| |以上两种方式一样。使用`-G`参数后会发出一个GET请求|
+| |`curl -v -G --data-urlencode 'user_name=ad min&password=123456' http://127.0.0.1:8080/test` 如果数据需要URL编码,可以结合`--data-urlencode`参数。|
+|-H|添加请求的标头|
+| |`curl -v -H 'Accept-Language: en-US' -H 'Secret-Message: xyzzy' http://127.0.0.1:8080/test`|
+| |`curl -v -d '{"user_name":"admin","password":"123456"}' -H 'content-type: application/json' http://127.0.0.1:8080/test`|
+| |上面命令添加HTTP请求的标头是`Content-Type: application/json`,然后用`-d`参数发送JSON数据。|
+|-i|打印出服务器回应的HTTP标头|
+| |`curl -i http://127.0.0.1:8080/test` 上面命令收到服务器响应后,先输出服务器响应的标头,然后空一行,再输出网页的源码。|
+|-I/--head|向服务器发出HEAD请求,然会将服务器响应的HTTP标头打印出来。|
+| |`curl -v -I http://127.0.0.1:8080/test`|
+| |`curl -v --head http://127.0.0.1:8080/test`|
+|-k||
+
 
 ### cookies文本内容
 
