@@ -607,7 +607,7 @@ curl -X POST https://www.example.com
 
 |参数|描述|
 |:-----|:-----|
-|AAAAAAAAAAAAA|AAAAAAAAAAAAA|
+|AAAAAAAAAAAA|AAAAAAAAAAAA|
 |-A|指定客户端的用户代理标头,即User-Agent。默认为`curl/[version]`|
 | |`curl -v -A 'golang/1.0' http://127.0.0.1:8080/test`|
 | |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test`同上|
@@ -643,7 +643,7 @@ curl -X POST https://www.example.com
 |-H|添加请求的标头|
 | |`curl -v -H 'Accept-Language: en-US' -H 'Secret-Message: xyzzy' http://127.0.0.1:8080/test`|
 | |`curl -v -d '{"user_name":"admin","password":"123456"}' -H 'content-type: application/json' http://127.0.0.1:8080/test`|
-| |上面命令添加HTTP请求的标头是`Content-Type: application/json`,然后用`-d`参数发送JSON数据|
+| |添加标头`Content-Type: application/json`,然后用`-d`参数发送JSON数据|
 |-i|打印出服务器回应的HTTP标头|
 | |`curl -i http://127.0.0.1:8080/test`|
 | |上面命令收到服务器响应后,先输出服务器响应的标头,然后空一行,再输出网页的源码|
@@ -661,7 +661,7 @@ curl -X POST https://www.example.com
 |-O|将服务器回应保存成文件,并将URL的最后部分当作文件名|
 | |`curl -v -O http://127.0.0.1:8080/test.html`|
 |-s|不输出错误和进度信息|
-| |`curl -s http://127.0.0.1:8080/test`不会显示错误信息,不发生错误的话,会正常显示运行结果|
+| |`curl -s http://127.0.0.1:8080/test`不会显示错误信息,不发生错误正常显示运行结果|
 |-S|只输出错误信息|
 | |`curl -S http://127.0.0.1:8080/test`|
 |-u|设置服务器认证的用户名和密码|
