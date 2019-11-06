@@ -610,11 +610,11 @@ curl -X POST https://www.example.com
 |AAAAAAAAAAAAA|AAAAAAAAAAAAA|
 |-A|指定客户端的用户代理标头,即User-Agent。默认为`curl/[version]`|
 | |`curl -v -A 'golang/1.0' http://127.0.0.1:8080/test`|
-| |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test`效果同上|
+| |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test`同上|
 |-b/--cookie|向服务器发送Cookie|
 | |`curl -v -b user_name=admin http://127.0.0.1:8080/test`|
 | |生成标头`Cookie: user_name=admin`|
-| |`curl -v --cookie user_name=admin http://127.0.0.1:8080/test`效果同上|
+| |`curl -v --cookie user_name=admin http://127.0.0.1:8080/test`同上|
 |-c|将服务器设置的Cookie写入一个文件|
 | |`curl -v -c cookies.txt http://127.0.0.1:8080/test`将Cookie写入[cookies.txt](#cookies文本内容)|
 |-d/--data|发送POST请求的数据体|
@@ -628,11 +628,11 @@ curl -X POST https://www.example.com
 | |发送的数据`user_name=ad min&password=123456`中有一个空格,需要URL编码|
 |-e|用来设置标头`Referer`,表示请求的来源|
 | |`curl -v -e 'http://127.0.0.1:8080/test' http://127.0.0.1:8080/test`|
-| |`curl -v -H 'Referer: http://127.0.0.1:8080/test'  http://127.0.0.1:8080/test`效果同上|
+| |`curl -v -H 'Referer: http://127.0.0.1:8080/test'  http://127.0.0.1:8080/test`同上|
 |-F/--file|向服务器上传二进制文件|
 | |`curl -v -F 'file=@logo.png'  http://127.0.0.1:8080/test`|
 | |使用-F参数以后,请求会自动加上标头`Content-Type: multipart/form-data`|
-| |`curl -v -F 'file=@logo.png;type=image/png'  http://127.0.0.1:8080/test`指定MIME类型|
+| |`curl -v -F 'file=@logo.png;type=image/png'  http://127.0.0.1:8080/test`指定类型|
 | |上面命令指定MIME类型为`image/png`,否则会把MIME类型设为`application/octet-stream`|
 | |`curl -v -F 'file=@logo.png;filename=test.png'  http://127.0.0.1:8080/test`指定文件名|
 |-G|构造URL的查询字符串|
