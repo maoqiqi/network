@@ -646,8 +646,39 @@ curl -X POST https://www.example.com
 |-I/--head|向服务器发出HEAD请求,然会将服务器响应的HTTP标头打印出来。|
 | |`curl -v -I http://127.0.0.1:8080/test`|
 | |`curl -v --head http://127.0.0.1:8080/test`|
-|-k||
-
+|-k|指定跳过SSL检测|
+| |`curl -v -k http://127.0.0.1:8080/test`|
+|-L|让HTTP请求跟随服务器重定向,默认不跟随重定向|
+| |`curl -v -L http://127.0.0.1:8080/test`|
+|--limit-rate|限制HTTP请求和回应的带宽,模拟慢网速的环境|
+| |`curl -v --limit-rate 200k http://127.0.0.1:8080/test` 将带宽限制在每秒200K字节|
+|-o|将服务器的回应保存成文件,等同于`wget`命令|
+| |`curl -v -o test.html http://127.0.0.1:8080/test`|
+|-O|将服务器回应保存成文件,并将URL的最后部分当作文件名|
+| |`curl -v -O http://127.0.0.1:8080/test.html`|
+|-s|不输出错误和进度信息|
+| |`curl -s http://127.0.0.1:8080/test` 不会显示错误信息,不发生错误的话,会正常显示运行结果|
+|-S|只输出错误信息|
+| |`curl -S http://127.0.0.1:8080/test`|
+|-u|设置服务器认证的用户名和密码|
+| |`curl -v -u 'admin"123456' http://127.0.0.1:8080/test`|
+| |设置用户名为`admin`,密码为`123456`,然后将其转为HTTP标头`Authorization: Basic YWRtaW4iMTIzNDU2OjEyMzQ1Ng==`。|
+| |`curl -v  http://admin:123456@127.0.0.1:8080/test` curl能够识别URL里面的用户名和密码|
+| |`curl -v -u admin http://127.0.0.1:8080/test` 只设置用户名,执行后,curl会提示用户输入密码|
+|-v/--trace|输出通信的整个过程,用于调试|
+| |`curl -v http://127.0.0.1:8080/test`|
+| |`curl --trace -  http://127.0.0.1:8080/test` `--trace`也可以用于调试,还会输出原始的二进制数据|
+|-x|指定HTTP请求的代理|
+| |`curl -v -x http://10.64.144.3:8123 https://www.google.com`|
+|-X|指定HTTP请求的方法|
+| |`curl -v -X POST http://127.0.0.1:8080/test` 发出POST请求|
+|||
+|||
+|||
+|||
+|||
+|||
+|||
 
 ### cookies文本内容
 

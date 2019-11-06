@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
 	"mime/multipart"
+	"net/http"
 	"net/url"
 	"network"
 )
@@ -23,7 +24,11 @@ var TestHandler network.HandlerFunc = func(c *network.Context) network.Response 
 
 	b, _ := ioutil.ReadAll(c.Request.Body)
 
+	// 测试Cookie
 	// c.SetCookie("user_id", "10001", int(60*time.Second), "/", "", false, false)
+
+	// 测试重定向
+	// return c.Redirect("/redirect")
 
 	return c.JSON(&struct {
 		QueryForm     map[string][]string `json:"query_form"`
@@ -43,5 +48,8 @@ var TestHandler network.HandlerFunc = func(c *network.Context) network.Response 
 func main() {
 	r := gin.Default()
 	r.Any("/test", network.Handle(TestHandler))
+	r.Any("/redirect", func(c *gin.Context) {
+		c.String(http.StatusOK, "redirect")
+	})
 	_ = r.Run(":8080")
 }
