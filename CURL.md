@@ -636,14 +636,15 @@ curl -X POST https://www.example.com
 |-G|构造URL的查询字符串|
 | |`curl -v -G -d user_name=admin -d password=123456 http://127.0.0.1:8080/test`|
 | |`curl -v -G -d 'user_name=admin&password=123456' http://127.0.0.1:8080/test`|
-| |以上两种方式一样。使用`-G`参数后会发出一个GET请求|
+| |两种方式一样。使用`-G`参数后会发出一个GET请求|
 | |`curl -v -G --data-urlencode 'user_name=ad min&password=123456' http://127.0.0.1:8080/test` 如果数据需要URL编码,可以结合`--data-urlencode`参数。|
 |-H|添加请求的标头|
 | |`curl -v -H 'Accept-Language: en-US' -H 'Secret-Message: xyzzy' http://127.0.0.1:8080/test`|
 | |`curl -v -d '{"user_name":"admin","password":"123456"}' -H 'content-type: application/json' http://127.0.0.1:8080/test`|
 | |上面命令添加HTTP请求的标头是`Content-Type: application/json`,然后用`-d`参数发送JSON数据。|
 |-i|打印出服务器回应的HTTP标头|
-| |`curl -i http://127.0.0.1:8080/test` 上面命令收到服务器响应后,先输出服务器响应的标头,然后空一行,再输出网页的源码。|
+| |`curl -i http://127.0.0.1:8080/test`|
+| |上面命令收到服务器响应后,先输出服务器响应的标头,然后空一行,再输出网页的源码。|
 |-I/--head|向服务器发出HEAD请求,然会将服务器响应的HTTP标头打印出来。|
 | |`curl -v -I http://127.0.0.1:8080/test`|
 | |`curl -v --head http://127.0.0.1:8080/test`|
@@ -663,9 +664,10 @@ curl -X POST https://www.example.com
 | |`curl -S http://127.0.0.1:8080/test`|
 |-u|设置服务器认证的用户名和密码|
 | |`curl -v -u 'admin"123456' http://127.0.0.1:8080/test`|
-| |设置用户名为`admin`,密码为`123456`,然后将其转为HTTP标头`Authorization: Basic YWRtaW4iMTIzNDU2OjEyMzQ1Ng==`。|
+| |设置用户名为`admin`,密码为`123456`。|
+| |然后将其转为HTTP标头`Authorization: Basic YWRtaW4iMTIzNDU2OjEyMzQ1Ng==`。|
 | |`curl -v  http://admin:123456@127.0.0.1:8080/test` curl能够识别URL里面的用户名和密码|
-| |`curl -v -u admin http://127.0.0.1:8080/test` 只设置用户名,执行后,curl会提示用户输入密码|
+| |`curl -v -u admin http://127.0.0.1:8080/test` 只设置用户名,执行命令会提示用户输入密码|
 |-v/--trace|输出通信的整个过程,用于调试|
 | |`curl -v http://127.0.0.1:8080/test`|
 | |`curl --trace -  http://127.0.0.1:8080/test` `--trace`也可以用于调试,还会输出原始的二进制数据|
