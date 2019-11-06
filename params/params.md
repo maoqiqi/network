@@ -83,7 +83,7 @@ multipartForm := c.Request.MultipartForm
 
 ### POST请求带参数
 
-`curl -X POST --data "user_name=admin&password=123456" http://127.0.0.1:8080/test`
+`curl -d "user_name=admin&password=123456" http://127.0.0.1:8080/test`
 
 普通的post表单请求:`Content-Type: application/x-www-form-urlencoded`
 
@@ -151,9 +151,9 @@ multipartForm := c.Request.MultipartForm
 ### POST请求带参数并上传文件
 
 ```
-curl -X POST --form user_name=admin --form password=123456 \
---form "upload[]=@/Users/mac/Downloads/csb-db-2019-10-24.txt" \
---form "upload[]=@/Users/mac/Downloads/QQ20191028-161857.png" \
+curl -F user_name=admin -F password=123456 \
+-F "upload[]=@/Users/mac/Downloads/csb-db-2019-10-24.txt" \
+-F "upload[]=@/Users/mac/Downloads/QQ20191028-161857.png" \
 http://127.0.0.1:8080/test?user_name=zhangsan
 ```
 
@@ -228,8 +228,8 @@ http://127.0.0.1:8080/test?user_name=zhangsan
 ### JSON数据
 
 ```
-curl -X POST --header 'content-type: application/json' \
---data '{"user_name":"admin","password":"123456"}' \
+curl -H 'content-type: application/json' \
+-d '{"user_name":"admin","password":"123456"}' \
 http://127.0.0.1:8080/test?user_name=zhangsan
 ```
 
@@ -256,7 +256,7 @@ http://127.0.0.1:8080/test?user_name=zhangsan
 ### XML数据
 
 ```
-curl -X POST --header "content-type: application/xml" --data \
+curl -H "content-type: application/xml" -d \
 '<?xml version="1.0" encoding="UTF-8"?><root>
   <user_name>admin</user_name>
   <password>123456</password>

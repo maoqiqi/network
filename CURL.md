@@ -70,7 +70,7 @@ CURL 是常用的命令行工具,用来请求 Web 服务器,然后得到和提�
 | |`curl -v -G -d 'user_name=admin&password=123456' http://127.0.0.1:8080/test`|
 | |两种方式一样。使用`-G`参数后会发出一个GET请求|
 | |`curl -v -G --data-urlencode 'user_name=ad min&password=123456' http://127.0.0.1:8080/test`如果数据需要URL编码,可以结合`--data-urlencode`参数|
-|-H|添加请求的标头|
+|-H/--header|添加请求的标头|
 | |`curl -v -H 'Accept-Language: en-US' -H 'Secret-Message: xyzzy' http://127.0.0.1:8080/test`|
 | |`curl -v -d '{"user_name":"admin","password":"123456"}' -H 'content-type: application/json' http://127.0.0.1:8080/test`|
 | |添加标头`Content-Type: application/json`,然后用`-d`参数发送JSON数据|
