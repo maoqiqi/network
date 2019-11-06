@@ -21,20 +21,20 @@
 
 ## 简介
 
-curl 是常用的命令行工具，用来请求 Web 服务器，然后得到和提取数据，显示在"标准输出"（stdout）上面。
-它的名字就是客户端（client）的 URL 工具的意思。它支持多种协议，功能非常强大，命令行参数多达几十种。
-如果熟练的话，完全可以取代 Postman 这一类的图形界面工具。
+curl 是常用的命令行工具,用来请求 Web 服务器,然后得到和提取数据,显示在"标准输出"（stdout）上面。
+它的名字就是客户端（client）的 URL 工具的意思。它支持多种协议,功能非常强大,命令行参数多达几十种。
+如果熟练的话,完全可以取代 Postman 这一类的图形界面工具。
 
 
 ## CURL网站开发指南
 
-我一向以为，curl只是一个编程用的函数库。
+我一向以为,curl只是一个编程用的函数库。
 
-最近才发现，这个命令本身，就是一个无比有用的网站开发工具，下面举例讲解如何将它用于网站开发。
+最近才发现,这个命令本身,就是一个无比有用的网站开发工具,下面举例讲解如何将它用于网站开发。
 
 ### 1.查看网页源码
 
-直接在curl命令后加上网址，就可以看到网页源码。我们以网址www.sina.com为例（选择该网址，主要因为它的网页代码较短）：
+直接在curl命令后加上网址,就可以看到网页源码。我们以网址www.sina.com为例（选择该网址,主要因为它的网页代码较短）：
 
 ```
 curl www.sina.com
@@ -50,7 +50,7 @@ curl www.sina.com
 </html>
 ```
 
-如果要把这个网页保存下来，可以使用`-o`参数，这就相当于使用wget命令了。
+如果要把这个网页保存下来,可以使用`-o`参数,这就相当于使用wget命令了。
 
 ```
 curl -o [文件名] www.sina.com
@@ -64,17 +64,17 @@ curl -o sina.txt www.sina.com
 
 ### 2.自动跳转
 
-有的网址是自动跳转的。使用`-L`参数，curl就会跳转到新的网址。
+有的网址是自动跳转的。使用`-L`参数,curl就会跳转到新的网址。
 
 ```
 curl -L www.sina.com
 ```
 
-键入上面的命令，结果就自动跳转为www.sina.com.cn。
+键入上面的命令,结果就自动跳转为www.sina.com.cn。
 
 ### 3.显示头信息
 
-`-i`参数可以显示http response的头信息，连同网页代码一起。
+`-i`参数可以显示http response的头信息,连同网页代码一起。
 
 ```
 curl -i www.sina.com
@@ -110,7 +110,7 @@ X-Via-CDN: f=edge,s=cnc.guangzhou.ha2ts4.51.nb.sinaedge.com,c=58.246.6.58;f=Edge
 
 ### 4.显示通信过程
 
-`-v`参数可以显示一次http通信的整个过程，包括端口连接和http request头信息。
+`-v`参数可以显示一次http通信的整个过程,包括端口连接和http request头信息。
 
 ```
 * Rebuilt URL to: www.sina.com/
@@ -148,7 +148,7 @@ X-Via-CDN: f=edge,s=cnc.guangzhou.ha2ts4.51.nb.sinaedge.com,c=58.246.6.58;f=Edge
 * Connection #0 to host www.sina.com left intact
 ```
 
-如果你觉得上面的信息还不够，那么下面的命令可以查看更详细的通信过程。
+如果你觉得上面的信息还不够,那么下面的命令可以查看更详细的通信过程。
 
 ```
 curl --trace output.txt www.sina.com
@@ -160,23 +160,23 @@ curl --trace output.txt www.sina.com
 curl --trace-ascii output.txt www.sina.com
 ```
 
-运行后，请打开output.txt文件查看。
+运行后,请打开output.txt文件查看。
 
 ### 5.发送表单信息
 
-发送表单信息有GET和POST两种方法。GET方法相对简单，只要把数据附在网址后面就行。
+发送表单信息有GET和POST两种方法。GET方法相对简单,只要把数据附在网址后面就行。
 
 ```
 curl example.com/form.cgi?data=xxx
 ```
 
-POST方法必须把数据和网址分开，curl就要用到--data参数。
+POST方法必须把数据和网址分开,curl就要用到--data参数。
 
 ```
 curl -X POST --data "data=xxx" [URL]
 ```
 
-如果你的数据没有经过表单编码，还可以让curl为你编码，参数是`--data-urlencode`。
+如果你的数据没有经过表单编码,还可以让curl为你编码,参数是`--data-urlencode`。
 
 ```
 curl -X POST --data-urlencode "date=xx xx" [URL]
@@ -184,7 +184,7 @@ curl -X POST --data-urlencode "date=xx xx" [URL]
 
 ### 6.HTTP动词
 
-curl默认的HTTP动词是GET，使用`-X`参数可以支持其他动词。
+curl默认的HTTP动词是GET,使用`-X`参数可以支持其他动词。
 
 ```
 curl -X POST www.example.com
@@ -213,7 +213,7 @@ curl --form upload=@localfilename --form press=OK [URL]
 
 ### 8.Referer字段
 
-有时你需要在http request头信息中，提供一个referer字段，表示你是从哪里跳转过来的。
+有时你需要在http request头信息中,提供一个referer字段,表示你是从哪里跳转过来的。
 
 ```
 curl --referer [URL] [URL]
@@ -221,7 +221,7 @@ curl --referer [URL] [URL]
 
 ### 9.UserAgent字段
 
-这个字段是用来表示客户端的设备信息。服务器有时会根据这个字段，针对不同设备，返回不同格式的网页，比如手机版和桌面版。
+这个字段是用来表示客户端的设备信息。服务器有时会根据这个字段,针对不同设备,返回不同格式的网页,比如手机版和桌面版。
 
 iPhone4的User Agent是:
 
@@ -237,15 +237,15 @@ curl --user-agent "[User Agent]" [URL]
 
 ### 10.cookie
 
-使用`--cookie`参数，可以让curl发送cookie。
+使用`--cookie`参数,可以让curl发送cookie。
 
 ```
 curl --cookie "name=xxx" [URL]
 ```
 
-至于具体的cookie的值，可以从http response头信息的`Set-Cookie`字段中得到。
+至于具体的cookie的值,可以从http response头信息的`Set-Cookie`字段中得到。
 
-`-c cookie-file`可以保存服务器返回的cookie到文件，`-b cookie-file`可以使用这个文件作为cookie信息，进行后续的请求。
+`-c cookie-file`可以保存服务器返回的cookie到文件,`-b cookie-file`可以使用这个文件作为cookie信息,进行后续的请求。
 
 
 ```
@@ -255,7 +255,7 @@ curl -b cookies [URL]
 
 ### 11.增加头信息
 
-有时需要在http request之中，自行增加一个头信息。`--header`参数就可以起到这个作用。
+有时需要在http request之中,自行增加一个头信息。`--header`参数就可以起到这个作用。
 
 ```
 curl --header "Content-Type:application/json" [URL]
@@ -263,7 +263,7 @@ curl --header "Content-Type:application/json" [URL]
 
 ### 12.HTTP认证
 
-有些网域需要HTTP认证，这时curl需要用到`--user`参数。
+有些网域需要HTTP认证,这时curl需要用到`--user`参数。
 
 ```
 curl --user name:password [URL]
@@ -274,7 +274,7 @@ curl --user name:password [URL]
 
 ### -A
 
-`-A`参数指定客户端的用户代理标头，即`User-Agent`。curl 的默认用户代理字符串是`curl/[version]`。
+`-A`参数指定客户端的用户代理标头,即`User-Agent`。curl 的默认用户代理字符串是`curl/[version]`。
 
 ```
 curl -A 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36' https://google.com
@@ -288,7 +288,7 @@ curl -A '' https://google.com
 
 上面命令会移除`User-Agent`标头。
 
-也可以通过`-H`参数直接指定标头，更改`User-Agent`。
+也可以通过`-H`参数直接指定标头,更改`User-Agent`。
 
 ```
 curl -H 'User-Agent: php/1.0' https://google.com
@@ -302,7 +302,7 @@ curl -H 'User-Agent: php/1.0' https://google.com
 curl -b 'foo=bar' https://google.com
 ```
 
-上面命令会生成一个标头`Cookie: foo=bar`，向服务器发送一个名为`foo`、值为`bar`的 Cookie。
+上面命令会生成一个标头`Cookie: foo=bar`,向服务器发送一个名为`foo`、值为`bar`的 Cookie。
 
 ```
 curl -b 'foo1=bar' -b 'foo2=baz' https://google.com
@@ -314,7 +314,7 @@ curl -b 'foo1=bar' -b 'foo2=baz' https://google.com
 curl -b cookies.txt https://www.google.com
 ```
 
-上面命令读取本地文件`cookies.txt`，里面是服务器设置的 Cookie（参见`-c`参数），将其发送到服务器。
+上面命令读取本地文件`cookies.txt`,里面是服务器设置的 Cookie（参见`-c`参数）,将其发送到服务器。
 
 ### -c
 
@@ -336,29 +336,29 @@ $ curl -d 'login=emma&password=123' -X POST https://google.com/login
 $ curl -d 'login=emma' -d 'password=123' -X POST  https://google.com/login
 ```
 
-使用`-d`参数以后，HTTP 请求会自动加上标头`Content-Type : application/x-www-form-urlencoded`。并且会自动将请求转为 POST 方法，因此可以省略`-X POST`。
+使用`-d`参数以后,HTTP 请求会自动加上标头`Content-Type : application/x-www-form-urlencoded`。并且会自动将请求转为 POST 方法,因此可以省略`-X POST`。
 
-`-d`参数可以读取本地文本文件的数据，向服务器发送。
+`-d`参数可以读取本地文本文件的数据,向服务器发送。
 
 ```
 curl -d '@data.txt' https://google.com/login
 ```
 
-上面命令读取data.txt文件的内容，作为数据体向服务器发送。
+上面命令读取data.txt文件的内容,作为数据体向服务器发送。
 
 ### --data-urlencode
 
-`--data-urlencode`参数等同于-d，发送 POST 请求的数据体，区别在于会自动将发送的数据进行 URL 编码。
+`--data-urlencode`参数等同于-d,发送 POST 请求的数据体,区别在于会自动将发送的数据进行 URL 编码。
 
 ```
 curl --data-urlencode 'comment=hello world' https://google.com/login
 ```
 
-上面代码中，发送的数据`hello world`之间有一个空格，需要进行 URL 编码。
+上面代码中,发送的数据`hello world`之间有一个空格,需要进行 URL 编码。
 
 ### -e
 
-`-e`参数用来设置 HTTP 的标头Referer，表示请求的来源。
+`-e`参数用来设置 HTTP 的标头Referer,表示请求的来源。
 
 ```
 curl -e 'https://google.com?q=example' https://www.example.com
@@ -366,7 +366,7 @@ curl -e 'https://google.com?q=example' https://www.example.com
 
 上面命令将`Referer`标头设为`https://google.com?q=example`。
 
-`-H`参数可以通过直接添加标头`Referer`，达到同样效果。
+`-H`参数可以通过直接添加标头`Referer`,达到同样效果。
 
 ```
 curl -H 'Referer: https://google.com?q=example' https://www.example.com
@@ -380,7 +380,7 @@ curl -H 'Referer: https://google.com?q=example' https://www.example.com
 curl -F 'file=@photo.png' https://google.com/profile
 ```
 
-上面命令会给 HTTP 请求加上标头`Content-Type: multipart/form-data`，然后将文件photo.png作为file字段上传。
+上面命令会给 HTTP 请求加上标头`Content-Type: multipart/form-data`,然后将文件photo.png作为file字段上传。
 
 `-F`参数可以指定 MIME 类型。
 
@@ -388,7 +388,7 @@ curl -F 'file=@photo.png' https://google.com/profile
 curl -F 'file=@photo.png;type=image/png' https://google.com/profile
 ```
 
-上面命令指定 MIME 类型为`image/png`，否则 curl 会把 MIME 类型设为`application/octet-stream`。
+上面命令指定 MIME 类型为`image/png`,否则 curl 会把 MIME 类型设为`application/octet-stream`。
 
 `-F`参数也可以指定文件名。
 
@@ -396,7 +396,7 @@ curl -F 'file=@photo.png;type=image/png' https://google.com/profile
 curl -F 'file=@photo.png;filename=me.png' https://google.com/profile
 ```
 
-上面命令中，原始文件名为`photo.png`，但是服务器接收到的文件名为`me.png`。
+上面命令中,原始文件名为`photo.png`,但是服务器接收到的文件名为`me.png`。
 
 ### -G
 
@@ -406,9 +406,9 @@ curl -F 'file=@photo.png;filename=me.png' https://google.com/profile
 curl -G -d 'q=kitties' -d 'count=20' https://google.com/search
 ```
 
-上面命令会发出一个 GET 请求，实际请求的 URL 为`https://google.com/search?q=kitties&count=20`。如果省略`-G`，会发出一个 POST 请求。
+上面命令会发出一个 GET 请求,实际请求的 URL 为`https://google.com/search?q=kitties&count=20`。如果省略`-G`,会发出一个 POST 请求。
 
-如果数据需要 URL 编码，可以结合`--data--urlencode`参数。
+如果数据需要 URL 编码,可以结合`--data--urlencode`参数。
 
 ```
 curl -G --data-urlencode 'comment=hello world' https://www.example.com
@@ -434,7 +434,7 @@ curl -H 'Accept-Language: en-US' -H 'Secret-Message: xyzzy' https://google.com
 curl -d '{"login": "emma", "pass": "123"}' -H 'Content-Type: application/json' https://google.com/login
 ```
 
-上面命令添加 HTTP 请求的标头是`Content-Type: application/json`，然后用`-d`参数发送 JSON 数据。
+上面命令添加 HTTP 请求的标头是`Content-Type: application/json`,然后用`-d`参数发送 JSON 数据。
 
 ### -i
 
@@ -444,11 +444,11 @@ curl -d '{"login": "emma", "pass": "123"}' -H 'Content-Type: application/json' h
 curl -i https://www.example.com
 ```
 
-上面命令收到服务器回应后，先输出服务器回应的标头，然后空一行，再输出网页的源码。
+上面命令收到服务器回应后,先输出服务器回应的标头,然后空一行,再输出网页的源码。
 
 ### -I
 
-`-I`参数向服务器发出 HEAD 请求，然会将服务器返回的 HTTP 标头打印出来。
+`-I`参数向服务器发出 HEAD 请求,然会将服务器返回的 HTTP 标头打印出来。
 
 ```
 curl -I https://www.example.com
@@ -482,7 +482,7 @@ curl -L -d 'tweet=hi' https://api.twitter.com/tweet
 
 ### --limit-rate
 
-`--limit-rate`用来限制 HTTP 请求和回应的带宽，模拟慢网速的环境。
+`--limit-rate`用来限制 HTTP 请求和回应的带宽,模拟慢网速的环境。
 
 ```
 curl --limit-rate 200k https://google.com
@@ -492,7 +492,7 @@ curl --limit-rate 200k https://google.com
 
 ### -o
 
-`-o`参数将服务器的回应保存成文件，等同于`wget`命令。
+`-o`参数将服务器的回应保存成文件,等同于`wget`命令。
 
 ```
 curl -o example.html https://www.example.com
@@ -502,13 +502,13 @@ curl -o example.html https://www.example.com
 
 ### -O
 
-`-O`参数将服务器回应保存成文件，并将 URL 的最后部分当作文件名。
+`-O`参数将服务器回应保存成文件,并将 URL 的最后部分当作文件名。
 
 ```
 curl -O https://www.example.com/foo/bar.html
 ```
 
-上面命令将服务器回应保存成文件，文件名为`bar.html`。
+上面命令将服务器回应保存成文件,文件名为`bar.html`。
 
 ### -s
 
@@ -518,9 +518,9 @@ curl -O https://www.example.com/foo/bar.html
 curl -s https://www.example.com
 ```
 
-上面命令一旦发生错误，不会显示错误信息。不发生错误的话，会正常显示运行结果。
+上面命令一旦发生错误,不会显示错误信息。不发生错误的话,会正常显示运行结果。
 
-如果想让 curl 不产生任何输出，可以使用下面的命令。
+如果想让 curl 不产生任何输出,可以使用下面的命令。
 
 ```
 curl -s -o /dev/null https://google.com
@@ -528,13 +528,13 @@ curl -s -o /dev/null https://google.com
 
 ### -S
 
-`-S`参数指定只输出错误信息，通常与`-s`一起使用。
+`-S`参数指定只输出错误信息,通常与`-s`一起使用。
 
 ```
 curl -s -o /dev/null https://google.com
 ```
 
-上面命令没有任何输出，除非发生错误。
+上面命令没有任何输出,除非发生错误。
 
 ### -u
 
@@ -544,7 +544,7 @@ curl -s -o /dev/null https://google.com
 curl -u 'bob:12345' https://google.com/login
 ```
 
-上面命令设置用户名为`bob`，密码为`12345`，然后将其转为 HTTP 标头`Authorization: Basic Ym9iOjEyMzQ1`。
+上面命令设置用户名为`bob`,密码为`12345`,然后将其转为 HTTP 标头`Authorization: Basic Ym9iOjEyMzQ1`。
 
 curl 能够识别 URL 里面的用户名和密码。
 
@@ -552,23 +552,23 @@ curl 能够识别 URL 里面的用户名和密码。
 curl https://bob:12345@google.com/login
 ```
 
-上面命令能够识别 URL 里面的用户名和密码，将其转为上个例子里面的 HTTP 标头。
+上面命令能够识别 URL 里面的用户名和密码,将其转为上个例子里面的 HTTP 标头。
 
 ```
 curl -u 'bob' https://google.com/login
 ```
 
-上面命令只设置了用户名，执行后，curl 会提示用户输入密码。
+上面命令只设置了用户名,执行后,curl 会提示用户输入密码。
 
 ### -v
 
-`-v`参数输出通信的整个过程，用于调试。
+`-v`参数输出通信的整个过程,用于调试。
 
 ```
 curl -v https://www.example.com
 ```
 
-`--trace`参数也可以用于调试，还会输出原始的二进制数据。
+`--trace`参数也可以用于调试,还会输出原始的二进制数据。
 
 ```
 curl --trace - https://www.example.com
@@ -584,13 +584,13 @@ curl -x socks5://james:cats@myproxy.com:8080 https://www.example.com
 
 上面命令指定 HTTP 请求通过`myproxy.com:8080`的 socks5 代理发出。
 
-如果没有指定代理协议，默认为 HTTP。
+如果没有指定代理协议,默认为 HTTP。
 
 ```
 curl -x james:cats@myproxy.com:8080 https://www.example.com
 ```
 
-上面命令中，请求的代理使用 HTTP 协议。
+上面命令中,请求的代理使用 HTTP 协议。
 
 ### -X
 
@@ -605,9 +605,9 @@ curl -X POST https://www.example.com
 
 
 
-|参数|描述|
+|-----参数-----|描述|
 |:-----|:-----|
-|-A|指定客户端的用户代理标头，即User-Agent。默认为`curl/[version]`。|
+|-A|指定客户端的用户代理标头,即User-Agent。默认为`curl/[version]`。|
 | |`curl -v -A '' http://127.0.0.1:8080/test` 移除User-Agent|
 | |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test` 通过-H更改User-Agent|
 |-b/--cookie|向服务器发送Cookie|
