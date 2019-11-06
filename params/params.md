@@ -46,7 +46,19 @@ multipartForm := c.Request.MultipartForm
 `curl http://127.0.0.1:8080/test`
 
 ```
+{
+    "query_form":{
 
+    },
+    "form":{
+
+    },
+    "post_form":{
+
+    },
+    "multipart_form":null,
+    "body":""
+}
 ```
 
 ### GET请求带参数 
