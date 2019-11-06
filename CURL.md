@@ -605,27 +605,27 @@ curl -X POST https://www.example.com
 
 
 
-|-----参数-----|描述|
+|参数|描述|
 |:-----|:-----|
 |-A|指定客户端的用户代理标头,即User-Agent。默认为`curl/[version]`。|
 | |`curl -v -A '' http://127.0.0.1:8080/test` 移除User-Agent|
 | |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test` 通过-H更改User-Agent|
 |-b/--cookie|向服务器发送Cookie|
-| |`curl -v -b user_name=admin http://127.0.0.1:8080/test` 上面命令会生成一个标头`Cookie: user_name=admin`|
+| |`curl -v -b user_name=admin http://127.0.0.1:8080/test` 生成标头`Cookie: user_name=admin`|
 | |`curl -v --cookie user_name=admin http://127.0.0.1:8080/test` 效果同上|
 |-c|将服务器设置的Cookie写入一个文件|
-| |`curl -v -c cookies.txt http://127.0.0.1:8080/test` 将服务器所回应的Cookie写入文本文件[cookies.txt](#cookies文本内容)|
+| |`curl -v -c cookies.txt http://127.0.0.1:8080/test` 将Cookie写入[cookies.txt](#cookies文本内容)|
 |-d/--data|发送POST请求的数据体|
 | |`curl -v -d user_name=admin -d password=123456 http://127.0.0.1:8080/test`|
 | |`curl -v -d 'user_name=admin&password=123456' http://127.0.0.1:8080/test`|
-| |以上两种方式一样。使用-d参数以后,请求会自动加上标头`Content-Type: application/x-www-form-urlencoded`。并且会自动将请求转为POST,因此可以省略`-X POST`。|
-| |`curl -v -d '@data.txt' http://127.0.0.1:8080/test` 同样可以读取本地[data.txt](#data文本内容)文件的数据,向服务器发送。|
+| |两种方式一样。使用`-d`参数以后,会自动将请求转为POST,并且会自动加上标头`Content-Type: application/x-www-form-urlencoded`。|
+| |`curl -v -d '@data.txt' http://127.0.0.1:8080/test` 读取本地[data.txt](#data文本内容)文件的数据,向服务器发送。|
 |--data-urlencode|等同于`-d`,发送POST请求的数据体,区别在于会自动将发送的数据进行URL编码。|
 | |`curl -v --data-urlencode 'user_name=ad min&password=123456' http://127.0.0.1:8080/test`|
 | |上面代码中,发送的数据`user_name=ad min&password=123456`之间有一个空格,需要进行URL编码。|
-|-e|用来设置标头Referer,表示请求的来源|
+|-e|用来设置标头`Referer`,表示请求的来源|
 | |`curl -v -e 'http://127.0.0.1:8080/test' http://127.0.0.1:8080/test`|
-| |`curl -v -H 'Referer: http://127.0.0.1:8080/test'  http://127.0.0.1:8080/test` 通过-H设置Referer|
+| |`curl -v -H 'Referer: http://127.0.0.1:8080/test'  http://127.0.0.1:8080/test` 效果同上|
 |-F/--file|向服务器上传二进制文件|
 | |`curl -v -F 'file=@logo.png'  http://127.0.0.1:8080/test`|
 | |使用-F参数以后,请求会自动加上标头`Content-Type: multipart/form-data`。|
