@@ -618,7 +618,8 @@ curl -X POST https://www.example.com
 |-d/--data|发送POST请求的数据体|
 | |`curl -v -d user_name=admin -d password=123456 http://127.0.0.1:8080/test`|
 | |`curl -v -d 'user_name=admin&password=123456' http://127.0.0.1:8080/test`|
-| |两种方式一样。使用`-d`参数以后,会自动将请求转为POST,并且会自动加上标头`Content-Type: application/x-www-form-urlencoded`。|
+| |两种方式一样。使用`-d`参数以后,会自动将请求转为POST,|
+| |并且会自动加上标头`Content-Type: application/x-www-form-urlencoded`。|
 | |`curl -v -d '@data.txt' http://127.0.0.1:8080/test` 读取本地[data.txt](#data文本内容)文件的数据,向服务器发送。|
 |--data-urlencode|等同于`-d`,发送POST请求的数据体,区别在于会自动将发送的数据进行URL编码。|
 | |`curl -v --data-urlencode 'user_name=ad min&password=123456' http://127.0.0.1:8080/test`|
@@ -631,7 +632,7 @@ curl -X POST https://www.example.com
 | |使用-F参数以后,请求会自动加上标头`Content-Type: multipart/form-data`。|
 | |`curl -v -F 'file=@logo.png;type=image/png'  http://127.0.0.1:8080/test` 指定MIME类型|
 | |上面命令指定MIME类型为`image/png`,否则会把MIME类型设为`application/octet-stream`。|
-| |`curl -v -F 'file=@logo.png;filename=test.png;type=image/png'  http://127.0.0.1:8080/test 指定文件名`|
+| |`curl -v -F 'file=@logo.png;filename=test.png'  http://127.0.0.1:8080/test` 指定文件名|
 |-G|构造URL的查询字符串|
 | |`curl -v -G -d user_name=admin -d password=123456 http://127.0.0.1:8080/test`|
 | |`curl -v -G -d 'user_name=admin&password=123456' http://127.0.0.1:8080/test`|
