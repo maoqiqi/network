@@ -4,20 +4,7 @@
 ## 目录
 
 * [简介](#简介)
-* [CURL网站开发指南](#CURL网站开发指南)
-  * [1.查看网页源码](#1.查看网页源码)
-  * [2.自动跳转](#2.自动跳转)
-  * [3.显示头信息](#3.显示头信息)
-  * [4.显示通信过程](#4.显示通信过程)
-  * [5.发送表单信息](#5.发送表单信息)
-  * [6.HTTP动词](#6.HTTP动词)
-  * [7.文件上传](#7.文件上传)
-  * [8.Referer字段](#8.Referer字段)
-  * [9.UserAgent字段](#9.UserAgent字段)
-  * [10.cookie](#10.cookie)
-  * [11.增加头信息](#11.增加头信息)
-  * [12.HTTP认证](#12.HTTP认证)
-* [常用参数](#常用参数)
+* [常用参数详解](#常用参数详解)
 
 ## 简介
 
@@ -25,256 +12,30 @@ curl 是常用的命令行工具,用来请求 Web 服务器,然后得到和提�
 它的名字就是客户端（client）的 URL 工具的意思。它支持多种协议,功能非常强大,命令行参数多达几十种。
 如果熟练的话,完全可以取代 Postman 这一类的图形界面工具。
 
-
-## CURL网站开发指南
-
 我一向以为,curl只是一个编程用的函数库。
 
-最近才发现,这个命令本身,就是一个无比有用的网站开发工具,下面举例讲解如何将它用于网站开发。
-
-### 1.查看网页源码
-
-直接在curl命令后加上网址,就可以看到网页源码。我们以网址www.sina.com为例（选择该网址,主要因为它的网页代码较短）：
-
-```
-curl www.sina.com
-```
-
-```
-<html>
-<head><title>301 Moved Permanently</title></head>
-<body bgcolor="white">
-<center><h1>301 Moved Permanently</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
-```
-
-如果要把这个网页保存下来,可以使用`-o`参数,这就相当于使用wget命令了。
-
-```
-curl -o [文件名] www.sina.com
-```
-
-例如：
-
-```
-curl -o sina.txt www.sina.com
-```
-
-### 2.自动跳转
-
-有的网址是自动跳转的。使用`-L`参数,curl就会跳转到新的网址。
-
-```
-curl -L www.sina.com
-```
-
-键入上面的命令,结果就自动跳转为www.sina.com.cn。
-
-### 3.显示头信息
-
-`-i`参数可以显示http response的头信息,连同网页代码一起。
-
-```
-curl -i www.sina.com
-```
-
-```
-HTTP/1.1 301 Moved Permanently
-Server: nginx
-Date: Wed, 30 Oct 2019 06:47:09 GMT
-Content-Type: text/html
-Content-Length: 178
-Connection: keep-alive
-Location: http://www.sina.com.cn/
-Expires: Wed, 30 Oct 2019 06:48:20 GMT
-Cache-Control: max-age=120
-X-Via-SSL: ssl.22.sinag1.qxg.lb.sinanode.com
-Age: 49
-Via: https/1.1 ctc.guangzhou.ha2ts4.182 (ApacheTrafficServer/6.2.1 [cRs f ]), https/1.1 cnc.guangzhou.ha2ts4.41 (ApacheTrafficServer/6.2.1 [cRs f ])
-X-Via-Edge: 15724180293643a06f63af0065a701af3a493
-X-Cache: HIT.41
-X-Via-CDN: f=edge,s=cnc.guangzhou.ha2ts4.51.nb.sinaedge.com,c=58.246.6.58;f=Edge,s=cnc.guangzhou.ha2ts4.41,c=112.90.6.51
-
-<html>
-<head><title>301 Moved Permanently</title></head>
-<body bgcolor="white">
-<center><h1>301 Moved Permanently</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
-```
-
-`-I`参数则是只显示http response的头信息。
-
-### 4.显示通信过程
-
-`-v`参数可以显示一次http通信的整个过程,包括端口连接和http request头信息。
-
-```
-* Rebuilt URL to: www.sina.com/
-*   Trying 202.102.94.124...
-* TCP_NODELAY set
-* Connected to www.sina.com (202.102.94.124) port 80 (#0)
-> GET / HTTP/1.1
-> Host: www.sina.com
-> User-Agent: curl/7.54.0
-> Accept: */*
->
-< HTTP/1.1 301 Moved Permanently
-< Server: nginx
-< Date: Wed, 30 Oct 2019 06:50:29 GMT
-< Content-Type: text/html
-< Content-Length: 178
-< Connection: keep-alive
-< Location: http://www.sina.com.cn/
-< Expires: Wed, 30 Oct 2019 06:52:06 GMT
-< Cache-Control: max-age=120
-< X-Via-SSL: ssl.22.sinag1.qxg.lb.sinanode.com
-< Age: 23
-< Via: https/1.1 ctc.guangzhou.ha2ts4.182 (ApacheTrafficServer/6.2.1 [cRs f ]), https/1.1 ctc.nanjing.ha2ts4.32 (ApacheTrafficServer/6.2.1 [cRs f ])
-< X-Via-Edge: 15724182290813a06f63a7c5e66ca54557499
-< X-Cache: HIT.32
-< X-Via-CDN: f=edge,s=ctc.nanjing.ha2ts4.75.nb.sinaedge.com,c=58.246.6.58;f=Edge,s=ctc.nanjing.ha2ts4.32,c=202.102.94.75
-<
-<html>
-<head><title>301 Moved Permanently</title></head>
-<body bgcolor="white">
-<center><h1>301 Moved Permanently</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
-* Connection #0 to host www.sina.com left intact
-```
-
-如果你觉得上面的信息还不够,那么下面的命令可以查看更详细的通信过程。
-
-```
-curl --trace output.txt www.sina.com
-```
-
-或者
-
-```
-curl --trace-ascii output.txt www.sina.com
-```
-
-运行后,请打开output.txt文件查看。
-
-### 5.发送表单信息
-
-发送表单信息有GET和POST两种方法。GET方法相对简单,只要把数据附在网址后面就行。
-
-```
-curl example.com/form.cgi?data=xxx
-```
-
-POST方法必须把数据和网址分开,curl就要用到--data参数。
-
-```
-curl -X POST --data "data=xxx" [URL]
-```
-
-如果你的数据没有经过表单编码,还可以让curl为你编码,参数是`--data-urlencode`。
-
-```
-curl -X POST --data-urlencode "date=xx xx" [URL]
-```
-
-### 6.HTTP动词
-
-curl默认的HTTP动词是GET,使用`-X`参数可以支持其他动词。
-
-```
-curl -X POST www.example.com
-```
-
-```
-curl -X DELETE www.example.com
-```
-
-### 7.文件上传
-
-假定文件上传的表单是下面这样：
-
-```
-<form method="POST" enctype='multipart/form-data' action="upload.cgi">
-　　　<input type=file name=upload>
-　　　<input type=submit name=press value="OK">
-</form>
-```
-
-你可以用curl这样上传文件：
-
-```
-curl --form upload=@localfilename --form press=OK [URL]
-```
-
-### 8.Referer字段
-
-有时你需要在http request头信息中,提供一个referer字段,表示你是从哪里跳转过来的。
-
-```
-curl --referer [URL] [URL]
-```
-
-### 9.UserAgent字段
-
-这个字段是用来表示客户端的设备信息。服务器有时会根据这个字段,针对不同设备,返回不同格式的网页,比如手机版和桌面版。
-
-iPhone4的User Agent是:
-
-```
-Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7
-```
-
-curl可以这样模拟：
-
-```
-curl --user-agent "[User Agent]" [URL]
-```
-
-### 10.cookie
-
-使用`--cookie`参数,可以让curl发送cookie。
-
-```
-curl --cookie "name=xxx" [URL]
-```
-
-至于具体的cookie的值,可以从http response头信息的`Set-Cookie`字段中得到。
-
-`-c cookie-file`可以保存服务器返回的cookie到文件,`-b cookie-file`可以使用这个文件作为cookie信息,进行后续的请求。
-
-
-```
-curl -c cookies [URL]
-curl -b cookies [URL]
-```
-
-### 11.增加头信息
-
-有时需要在http request之中,自行增加一个头信息。`--header`参数就可以起到这个作用。
-
-```
-curl --header "Content-Type:application/json" [URL]
-```
-
-### 12.HTTP认证
-
-有些网域需要HTTP认证,这时curl需要用到`--user`参数。
-
-```
-curl --user name:password [URL]
-```
-
-
+最近才发现,这个命令本身,就是一个无比有用的网站开发工具：
+
+1. 查看网页源码
+2. 自动跳转
+3. 显示头信息
+4. 显示通信过程
+5. 发送表单信息
+6. HTTP动词
+7. 文件上传
+8. Referer字段
+9. UserAgent字段
+10. cookie
+11. 增加头信息
+12. HTTP认证
+
+
+## 常用参数详解
 
 |参数|描述|
 |:-----|:-----|
 |AAAAAAAAAAAAA|AAAAAAAAAAAAA(为了显示效果)|
-|-A|指定客户端的用户代理标头,即User-Agent。默认为`curl/[version]`|
+|-A/--user-agent|指定客户端的用户代理标头,即User-Agent。默认为`curl/[version]`|
 | |`curl -v -A 'golang/1.0' http://127.0.0.1:8080/test`|
 | |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test`同上|
 |-b/--cookie|向服务器发送Cookie|
@@ -292,15 +53,16 @@ curl --user name:password [URL]
 |--data-urlencode|等同于`-d`,发送POST请求的数据体,区别在于会自动将发送的数据进行URL编码|
 | |`curl -v --data-urlencode 'user_name=ad min&password=123456' http://127.0.0.1:8080/test`|
 | |发送的数据`user_name=ad min&password=123456`中有一个空格,需要URL编码|
-|-e|用来设置标头`Referer`,表示请求的来源|
+|-e/--referer|用来设置标头`Referer`,表示请求的来源|
 | |`curl -v -e 'http://127.0.0.1:8080/test' http://127.0.0.1:8080/test`|
 | |`curl -v -H 'Referer: http://127.0.0.1:8080/test'  http://127.0.0.1:8080/test`同上|
 |-F/--file|向服务器上传二进制文件|
-| |`curl -v -F 'file=@logo.png'  http://127.0.0.1:8080/test`|
+| |`curl -F '[name]=@[localfilename]' -F [data] [URL]`|
+| |`curl -v -F 'file=@logo.png' http://127.0.0.1:8080/test`|
 | |使用-F参数以后,请求会自动加上标头`Content-Type: multipart/form-data`|
 | |`curl -v -F 'file=@logo.png;type=image/png'  http://127.0.0.1:8080/test`指定类型|
 | |上面命令指定MIME类型为`image/png`,否则会把MIME类型设为`application/octet-stream`|
-| |`curl -v -F 'file=@logo.png;filename=test.png'  http://127.0.0.1:8080/test`指定文件名|
+| |`curl -v -F 'file=@logo.png;filename=test.png' http://127.0.0.1:8080/test`指定文件名|
 |-G|构造URL的查询字符串|
 | |`curl -v -G -d user_name=admin -d password=123456 http://127.0.0.1:8080/test`|
 | |`curl -v -G -d 'user_name=admin&password=123456' http://127.0.0.1:8080/test`|
@@ -323,6 +85,7 @@ curl --user name:password [URL]
 |--limit-rate|限制HTTP请求和回应的带宽,模拟慢网速的环境|
 | |`curl -v --limit-rate 200k http://127.0.0.1:8080/test`将带宽限制在每秒200K字节|
 |-o|将服务器的回应保存成文件,等同于`wget`命令|
+| |`curl -o [文件名] URL`|
 | |`curl -v -o test.html http://127.0.0.1:8080/test`|
 |-O|将服务器回应保存成文件,并将URL的最后部分当作文件名|
 | |`curl -v -O http://127.0.0.1:8080/test.html`|
@@ -338,13 +101,14 @@ curl --user name:password [URL]
 | |`curl -v -u admin http://127.0.0.1:8080/test`只设置用户名,执行命令会提示用户输入密码|
 |-v/--trace|输出通信的整个过程,用于调试|
 | |`curl -v http://127.0.0.1:8080/test`|
+| |如果你觉得上面的信息还不够,那么下面的命令可以查看更详细的通信过程,`--trace -`输出原始的二进制数据|
 | |`curl --trace -  http://127.0.0.1:8080/test`|
-| |`--trace -`也可以用于调试,还会输出原始的二进制数据|
+| |`curl --trace-ascii output.txt http://127.0.0.1:8080/test` 打开[output.txt](#output文本内容)文件查看|
 |-x|指定HTTP请求的代理|
 | |`curl -v -x http://10.64.144.3:8123 https://www.google.com`|
 |-X|指定HTTP请求的方法|
 | |`curl -v -X POST http://127.0.0.1:8080/test`发出POST请求|
-|||
+| |`curl -v -X DELETE http://127.0.0.1:8080/test` 发出DELETE请求|
 |||
 |||
 |||
@@ -366,4 +130,32 @@ curl --user name:password [URL]
 
 ```
 user_name=admin&password=123456
+```
+
+### output文本内容
+
+```
+== Info:   Trying 127.0.0.1...
+== Info: TCP_NODELAY set
+== Info: Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0)
+=> Send header, 82 bytes (0x52)
+0000: GET /test HTTP/1.1
+0014: Host: 127.0.0.1:8080
+002a: User-Agent: curl/7.54.0
+0043: Accept: */*
+0050:
+<= Recv header, 17 bytes (0x11)
+0000: HTTP/1.1 200 OK
+<= Recv header, 47 bytes (0x2f)
+0000: Content-Type: application/json; charset=utf-8
+<= Recv header, 37 bytes (0x25)
+0000: Date: Wed, 06 Nov 2019 06:19:24 GMT
+<= Recv header, 20 bytes (0x14)
+0000: Content-Length: 74
+<= Recv header, 2 bytes (0x2)
+0000:
+<= Recv data, 74 bytes (0x4a)
+0000: {"query_form":{},"form":{},"post_form":{},"multipart_form":null,
+0040: "body":""}
+== Info: Connection #0 to host 127.0.0.1 left intact
 ```
