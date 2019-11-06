@@ -609,8 +609,8 @@ curl -X POST https://www.example.com
 |:-----|:-----|
 |AAAAAAAAAAAAA|AAAAAAAAAAAAA|
 |-A|指定客户端的用户代理标头,即User-Agent。默认为`curl/[version]`|
-| |`curl -v -A '' http://127.0.0.1:8080/test`移除User-Agent|
-| |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test``-H`设置`User-Agent`|
+| |`curl -v -A 'golang/1.0' http://127.0.0.1:8080/test`|
+| |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test`效果同上|
 |-b/--cookie|向服务器发送Cookie|
 | |`curl -v -b user_name=admin http://127.0.0.1:8080/test`|
 | |生成标头`Cookie: user_name=admin`|
@@ -625,7 +625,7 @@ curl -X POST https://www.example.com
 | |`curl -v -d '@data.txt' http://127.0.0.1:8080/test`读取本地[data.txt](#data文本内容)文件的数据发送|
 |--data-urlencode|等同于`-d`,发送POST请求的数据体,区别在于会自动将发送的数据进行URL编码|
 | |`curl -v --data-urlencode 'user_name=ad min&password=123456' http://127.0.0.1:8080/test`|
-| |上面代码中,发送的数据`user_name=ad min&password=123456`之间有一个空格,需要进行URL编码|
+| |发送的数据`user_name=ad min&password=123456`中有一个空格,需要URL编码|
 |-e|用来设置标头`Referer`,表示请求的来源|
 | |`curl -v -e 'http://127.0.0.1:8080/test' http://127.0.0.1:8080/test`|
 | |`curl -v -H 'Referer: http://127.0.0.1:8080/test'  http://127.0.0.1:8080/test`效果同上|
