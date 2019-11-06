@@ -5,16 +5,18 @@
 
 * [简介](#简介)
 * [常用参数详解](#常用参数详解)
+* [About](#About)
+* [License](#License)
 
 ## 简介
 
-curl 是常用的命令行工具,用来请求 Web 服务器,然后得到和提取数据,显示在"标准输出"（stdout）上面。
+CURL 是常用的命令行工具,用来请求 Web 服务器,然后得到和提取数据,显示在"标准输出"（stdout）上面。
 它的名字就是客户端（client）的 URL 工具的意思。它支持多种协议,功能非常强大,命令行参数多达几十种。
 如果熟练的话,完全可以取代 Postman 这一类的图形界面工具。
 
-我一向以为,curl只是一个编程用的函数库。
+我一向以为,CURL只是一个编程用的函数库。
 
-最近才发现,这个命令本身,就是一个无比有用的网站开发工具：
+最近才发现,这个命令本身,就是一个无比有用的网站开发工具,例如：
 
 1. 查看网页源码
 2. 自动跳转
@@ -158,4 +160,34 @@ user_name=admin&password=123456
 0000: {"query_form":{},"form":{},"post_form":{},"multipart_form":null,
 0040: "body":""}
 == Info: Connection #0 to host 127.0.0.1 left intact
+```
+
+
+## About
+
+* **作者**：March
+* **邮箱**：fengqi.mao.march@gmail.com
+* **头条**：https://toutiao.io/u/425956/subjects
+* **简书**：https://www.jianshu.com/u/02f2491c607d
+* **掘金**：https://juejin.im/user/5b484473e51d45199940e2ae
+* **CSDN**：http://blog.csdn.net/u011810138
+* **SegmentFault**：https://segmentfault.com/u/maoqiqi
+* **StackOverFlow**：https://stackoverflow.com/users/8223522
+
+## License
+
+```
+   Copyright 2019 maoqiqi
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
 ```
