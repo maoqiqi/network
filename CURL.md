@@ -608,11 +608,12 @@ curl -X POST https://www.example.com
 |参数|描述|
 |:-----|:-----|
 |AAAAAAAAAAAAA|AAAAAAAAAAAAA|
-|-A|指定客户端的用户代理标头,即User-Agent。默认为`curl/[version]`。|
+|-A|指定客户端的用户代理标头,即User-Agent。默认为`curl/[version]`|
 | |`curl -v -A '' http://127.0.0.1:8080/test`移除User-Agent|
-| |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test`通过-H更改User-Agent|
+| |`curl -v -H 'User-Agent: golang/1.0' http://127.0.0.1:8080/test``-H`设置`User-Agent`|
 |-b/--cookie|向服务器发送Cookie|
-| |`curl -v -b user_name=admin http://127.0.0.1:8080/test`生成标头`Cookie: user_name=admin`|
+| |`curl -v -b user_name=admin http://127.0.0.1:8080/test`|
+| |生成标头`Cookie: user_name=admin`|
 | |`curl -v --cookie user_name=admin http://127.0.0.1:8080/test`效果同上|
 |-c|将服务器设置的Cookie写入一个文件|
 | |`curl -v -c cookies.txt http://127.0.0.1:8080/test`将Cookie写入[cookies.txt](#cookies文本内容)|
@@ -620,33 +621,33 @@ curl -X POST https://www.example.com
 | |`curl -v -d user_name=admin -d password=123456 http://127.0.0.1:8080/test`|
 | |`curl -v -d 'user_name=admin&password=123456' http://127.0.0.1:8080/test`|
 | |两种方式一样。使用`-d`参数以后,会自动将请求转为POST,|
-| |并且会自动加上标头`Content-Type: application/x-www-form-urlencoded`。|
-| |`curl -v -d '@data.txt' http://127.0.0.1:8080/test`读取本地[data.txt](#data文本内容)文件的数据,向服务器发送。|
-|--data-urlencode|等同于`-d`,发送POST请求的数据体,区别在于会自动将发送的数据进行URL编码。|
+| |并且会自动加上标头`Content-Type: application/x-www-form-urlencoded`|
+| |`curl -v -d '@data.txt' http://127.0.0.1:8080/test`读取本地[data.txt](#data文本内容)文件的数据发送|
+|--data-urlencode|等同于`-d`,发送POST请求的数据体,区别在于会自动将发送的数据进行URL编码|
 | |`curl -v --data-urlencode 'user_name=ad min&password=123456' http://127.0.0.1:8080/test`|
-| |上面代码中,发送的数据`user_name=ad min&password=123456`之间有一个空格,需要进行URL编码。|
+| |上面代码中,发送的数据`user_name=ad min&password=123456`之间有一个空格,需要进行URL编码|
 |-e|用来设置标头`Referer`,表示请求的来源|
 | |`curl -v -e 'http://127.0.0.1:8080/test' http://127.0.0.1:8080/test`|
 | |`curl -v -H 'Referer: http://127.0.0.1:8080/test'  http://127.0.0.1:8080/test`效果同上|
 |-F/--file|向服务器上传二进制文件|
 | |`curl -v -F 'file=@logo.png'  http://127.0.0.1:8080/test`|
-| |使用-F参数以后,请求会自动加上标头`Content-Type: multipart/form-data`。|
+| |使用-F参数以后,请求会自动加上标头`Content-Type: multipart/form-data`|
 | |`curl -v -F 'file=@logo.png;type=image/png'  http://127.0.0.1:8080/test`指定MIME类型|
-| |上面命令指定MIME类型为`image/png`,否则会把MIME类型设为`application/octet-stream`。|
+| |上面命令指定MIME类型为`image/png`,否则会把MIME类型设为`application/octet-stream`|
 | |`curl -v -F 'file=@logo.png;filename=test.png'  http://127.0.0.1:8080/test`指定文件名|
 |-G|构造URL的查询字符串|
 | |`curl -v -G -d user_name=admin -d password=123456 http://127.0.0.1:8080/test`|
 | |`curl -v -G -d 'user_name=admin&password=123456' http://127.0.0.1:8080/test`|
 | |两种方式一样。使用`-G`参数后会发出一个GET请求|
-| |`curl -v -G --data-urlencode 'user_name=ad min&password=123456' http://127.0.0.1:8080/test`如果数据需要URL编码,可以结合`--data-urlencode`参数。|
+| |`curl -v -G --data-urlencode 'user_name=ad min&password=123456' http://127.0.0.1:8080/test`如果数据需要URL编码,可以结合`--data-urlencode`参数|
 |-H|添加请求的标头|
 | |`curl -v -H 'Accept-Language: en-US' -H 'Secret-Message: xyzzy' http://127.0.0.1:8080/test`|
 | |`curl -v -d '{"user_name":"admin","password":"123456"}' -H 'content-type: application/json' http://127.0.0.1:8080/test`|
-| |上面命令添加HTTP请求的标头是`Content-Type: application/json`,然后用`-d`参数发送JSON数据。|
+| |上面命令添加HTTP请求的标头是`Content-Type: application/json`,然后用`-d`参数发送JSON数据|
 |-i|打印出服务器回应的HTTP标头|
 | |`curl -i http://127.0.0.1:8080/test`|
-| |上面命令收到服务器响应后,先输出服务器响应的标头,然后空一行,再输出网页的源码。|
-|-I/--head|向服务器发出HEAD请求,然会将服务器响应的HTTP标头打印出来。|
+| |上面命令收到服务器响应后,先输出服务器响应的标头,然后空一行,再输出网页的源码|
+|-I/--head|向服务器发出HEAD请求,然会将服务器响应的HTTP标头打印出来|
 | |`curl -v -I http://127.0.0.1:8080/test`|
 | |`curl -v --head http://127.0.0.1:8080/test`|
 |-k|指定跳过SSL检测|
@@ -665,8 +666,8 @@ curl -X POST https://www.example.com
 | |`curl -S http://127.0.0.1:8080/test`|
 |-u|设置服务器认证的用户名和密码|
 | |`curl -v -u 'admin"123456' http://127.0.0.1:8080/test`|
-| |设置用户名为`admin`,密码为`123456`。|
-| |然后将其转为HTTP标头`Authorization: Basic YWRtaW4iMTIzNDU2OjEyMzQ1Ng==`。|
+| |设置用户名为`admin`,密码为`123456`|
+| |然后将其转为HTTP标头`Authorization: Basic YWRtaW4iMTIzNDU2OjEyMzQ1Ng==`|
 | |`curl -v  http://admin:123456@127.0.0.1:8080/test`curl能够识别URL里面的用户名和密码|
 | |`curl -v -u admin http://127.0.0.1:8080/test`只设置用户名,执行命令会提示用户输入密码|
 |-v/--trace|输出通信的整个过程,用于调试|
