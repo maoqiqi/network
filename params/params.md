@@ -13,14 +13,12 @@
 * [About](#About)
 * [License](#License)
 
-
 ## Request请求结构
 
 * `Request.URL.RawQuery`：地址问号后的参数
 * `Request.Form`：存储了get,post,put参数,在使用之前需要调用ParseForm方法
 * `Request.PostForm`：存储了post,put参数,在使用之前需要调用ParseForm方法
 * `Request.MultipartForm`：存储了包含了文件上传的表单的post参数,在使用之前需要调用ParseMultipartForm方法
-
 
 ## GO代码示例
 
@@ -41,7 +39,6 @@ multipartForm := c.Request.MultipartForm
 > **注意:** 其中Request.Form和Request.PostForm必须在调用ParseForm之后,才会有数据,否则则是空数组。
 而Request.FormValue和Request.PostFormValue()无需调用ParseForm就能读取数据。
 
-
 ## 模拟请求查看参数
 
 ### GET请求 
@@ -49,18 +46,7 @@ multipartForm := c.Request.MultipartForm
 `curl http://127.0.0.1:8080/test`
 
 ```
-{
-    "query_form":{
 
-    },
-    "form":{
-
-    },
-    "post_form":{
-
-    },
-    "multipart_form":null
-}
 ```
 
 ### GET请求带参数 
@@ -70,25 +56,16 @@ multipartForm := c.Request.MultipartForm
 ```
 {
     "query_form":{
-        "password":[
-            "123456"
-        ],
-        "user_name":[
-            "admin"
-        ]
+
     },
     "form":{
-        "password":[
-            "123456"
-        ],
-        "user_name":[
-            "admin"
-        ]
+
     },
     "post_form":{
 
     },
-    "multipart_form":null
+    "multipart_form":null,
+    "body":""
 }
 ```
 
@@ -119,7 +96,8 @@ multipartForm := c.Request.MultipartForm
             "admin"
         ]
     },
-    "multipart_form":null
+    "multipart_form":null,
+    "body":""
 }
 ```
 
@@ -153,7 +131,8 @@ multipartForm := c.Request.MultipartForm
             "admin"
         ]
     },
-    "multipart_form":null
+    "multipart_form":null,
+    "body":""
 }
 ```
 
@@ -229,7 +208,8 @@ http://127.0.0.1:8080/test?user_name=zhangsan
                 }
             ]
         }
-    }
+    },
+    "body":""
 }
 ```
 
@@ -242,10 +222,23 @@ http://127.0.0.1:8080/test?user_name=zhangsan
 ```
 
 ```
-<?xml version="1.0" encoding="UTF-8"?><root>
-  <user_name>admin</user_name>
-  <password>123456</password>
-</root>
+{
+    "query_form":{
+        "user_name":[
+            "zhangsan"
+        ]
+    },
+    "form":{
+        "user_name":[
+            "zhangsan"
+        ]
+    },
+    "post_form":{
+
+    },
+    "multipart_form":null,
+    "body":"{"user_name":"admin","password":"123456"}"
+}
 ```
 
 ### XML数据
@@ -260,9 +253,27 @@ http://127.0.0.1:8080/test?user_name=zhangsan
 ```
 
 ```
+{
+    "query_form":{
+        "user_name":[
+            "zhangsan"
+        ]
+    },
+    "form":{
+        "user_name":[
+            "zhangsan"
+        ]
+    },
+    "post_form":{
 
+    },
+    "multipart_form":null,
+    "body":"<?xml version="1.0" encoding="UTF-8"?><root>
+  <user_name>admin</user_name>
+  <password>123456</password>
+</root>"
+}
 ```
-
 
 ## About
 
