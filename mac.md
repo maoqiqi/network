@@ -150,28 +150,28 @@ brew update && brew upgrade brew-cask && brew cleanup
 有些插件可以让Mac上的文件预览更有效，比如语法高亮、markdown 渲染、json 预览等等。
 
 ```
-$ brew cask install qlcolorcode
-$ brew cask install qlstephen
-$ brew cask install qlmarkdown
-$ brew cask install quicklook-json
-$ brew cask install qlprettypatch
-$ brew cask install quicklook-csv
-$ brew cask install betterzipql
-$ brew cask install webp-quicklook
-$ brew cask install suspicious-package  
+brew cask install qlcolorcode
+brew cask install qlstephen
+brew cask install qlmarkdown
+brew cask install quicklook-json
+brew cask install qlprettypatch
+brew cask install quicklook-csv
+brew cask install betterzipql
+brew cask install webp-quicklook
+brew cask install suspicious-package  
 ```
 
 OS X图形界面程序
 
 ```
 brew cask install alfred
-$ brew cask install appcleaner
-$ brew cask install cheatsheet
-$ brew cask install dropbox
-$ brew cask install google-chrome
-$ brew cask install onepassword
-$ brew cask install sublime-text
-$ brew cask install totalfinder
+brew cask install appcleaner
+brew cask install cheatsheet
+brew cask install dropbox
+brew cask install google-chrome
+brew cask install onepassword
+brew cask install sublime-text
+brew cask install totalfinder
 ```
 
 > 如果你经常使用Alfred启动程序，那么你会想Alfred可以搜索brew cask安装的程序，实现这些仅需运行：
