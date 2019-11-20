@@ -37,3 +37,67 @@
 
 * 互联网帐户
   * 添加iCloud用户，同步日历，联系人和 Find my mac 等等。
+  
+
+## 必装软件清单
+
+|软件|版本|说明|
+|:-----|:-----|:-----|
+|brew|`*`|https://brew.sh/|
+|iTerm2|`*`|https://iterm2.com/|
+|ohmyzsh|`*`|https://ohmyz.sh/|
+|git|`*`|brew install git|
+|redis|`>3.*`|brew install redis|
+|nginx|`>1.10`|brew install nginx 如果安装docker环境可不装|
+|sequel pro|`*`|http://sequelpro.com/ 数据库管理工具|
+|switchhosts|`*`|https://github.com/oldj/SwitchHosts host管理工具|
+|The Unarchiver|`*`|https://theunarchiver.com/ 解压工具|
+
+
+## Sudo免密码设置
+
+* 打开命令窗口输入如下命令：`sudo visudo`
+* 替换 #%username ALL=(ALL) ALL 为:`%username ALL=(ALL) NOPASSWD: ALL`
+
+> username为当前登录用户名
+
+
+## 临时上传下载文件
+
+```
+curl -F "file=@test.txt" https://file.io
+{"success":true,"key":"2ojE41","link":"https://file.io/2ojE41","expiry":"14 days"}
+
+curl https://file.io/2ojE41
+This is a test
+
+curl https://file.io/2ojE41
+{"success":false,"error":404,"message":"Not Found"}
+```
+
+设置到期时间
+
+```
+curl -F "file=@test.txt" https://file.io/?expires=1w
+{"success":true,"key":"aQbnDJ","link":"https://file.io/aQbnDJ","expiry":"7 days"}
+
+sleep 604801
+
+curl https://file.io/aQbnDJ
+{"success":false,"error":404,"message":"Not Found"}
+```
+
+> 查询参数过期必须是一个正整数，默认情况下，它表示删除文件之前的天数（默认为14天）。如果跟随w，则为周数。m代表数月，y代表数年。
+
+还可以将直接文本发送到`file.io`:
+
+```
+curl --data "text=this is a secret pw" https://file.io
+{"success":true,"key":"pgiPc2","link":"https://file.io/pgiPc2","expiry":"14 days"}
+
+$ curl https://file.io/pgiPc2
+this is a secret pw
+
+$ curl https://file.io/pgiPc2
+{"success":false,"error":404,"message":"Not Found"}
+```
