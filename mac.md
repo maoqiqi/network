@@ -83,9 +83,13 @@ Homebrew:包管理工具可以让你安装和更新程序变得更方便，是�
 将安装源换成国内源
 
 * 将brew的install文件下载本地
+
   `curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install >> brew_install`
+  
 * 修改install文件的镜像源
+
   `vim brew_install`
+  
 * 将brew_install文件里面的两行代码替换掉
 
   待替换的代码为：
@@ -105,6 +109,7 @@ Homebrew:包管理工具可以让你安装和更新程序变得更方便，是�
   修改完成之后保存好修改后的brew_install文件。
   
 * 安装
+
   `/usr/local/bin/ruby ~/brew_install`
 
 ### 基本使用
