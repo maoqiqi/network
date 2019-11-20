@@ -7,6 +7,9 @@
 
 * [Mac开发前需做的系统设置](#Mac开发前需做的系统设置)
 * [必装软件清单](#必装软件清单)
+* [如何安装Homebrew与使用](#如何安装Homebrew与使用)
+* [iTerm2](#iTerm2)
+* [ohmyzsh](#ohmyzsh)
 * [Sudo免密码设置](#Sudo免密码设置)
 * [临时上传下载文件](#临时上传下载文件)
 * [About](#About)
@@ -183,6 +186,21 @@ brew cask alfred link
 此外你还可以通过brew cask安装[launchrocket](https://github.com/jimbojsb/launchrocket)，来管理通过brew安装的service。
 
 ![launchrocket](images/launchrocket.png)
+
+
+## iTerm2
+
+作为一名开发者，我们常常花上很多时间在终端上，如同武士的剑，一出手便知高低。所以让我们安装Mac上最强大的终端iTerm2吧！
+
+* 在`Keys -> Hotkey`中设置`command + option + i`快速显示和隐藏iTerm
+* 在`Profiles -> Default -> Check silence bell`
+* 下载`Solarized dark iterm colors`，在`Profiles -> Default -> Colors -> Load Presets`将其导入，作为默认颜色。
+* 在`Profiles -> Text`改变游标(cursor)文字和颜色，随个人喜好。
+
+
+## OhMyZSH
+
+
 
 
 ## Sudo免密码设置
