@@ -130,6 +130,60 @@ Homebrew:包管理工具可以让你安装和更新程序变得更方便，是�
 你已经感受到了使用 Homebrew 安装命令行程序的便利。
 那么接下来，我们将通过Homebrew Cask优雅、简单、快速的安装和管理OS X图形界面程序，比如Google Chrome和Dropbox。
 
+安装Homebrew-cask是如此的简单直接，运行以下命令即可完成：
+
+```
+// 添加Github上的caskroom/cask库
+brew tap caskroom/cask  
+// 安装brew-cask
+brew install brew-cask  
+// 安装Google浏览器
+brew cask install google-chrome 
+// 更新
+brew update && brew upgrade brew-cask && brew cleanup
+```
+
+如果你想查看cask上是否存在你需要的app，可以到[caskroom.io](https://buyinstagramlikes.io/caskroom/)进行搜索。
+
+**文件预览插件**
+
+有些插件可以让Mac上的文件预览更有效，比如语法高亮、markdown 渲染、json 预览等等。
+
+```
+$ brew cask install qlcolorcode
+$ brew cask install qlstephen
+$ brew cask install qlmarkdown
+$ brew cask install quicklook-json
+$ brew cask install qlprettypatch
+$ brew cask install quicklook-csv
+$ brew cask install betterzipql
+$ brew cask install webp-quicklook
+$ brew cask install suspicious-package  
+```
+
+OS X图形界面程序
+
+```
+brew cask install alfred
+$ brew cask install appcleaner
+$ brew cask install cheatsheet
+$ brew cask install dropbox
+$ brew cask install google-chrome
+$ brew cask install onepassword
+$ brew cask install sublime-text
+$ brew cask install totalfinder
+```
+
+> 如果你经常使用Alfred启动程序，那么你会想Alfred可以搜索brew cask安装的程序，实现这些仅需运行：
+
+```
+brew cask alfred link
+```
+
+此外你还可以通过brew cask安装[launchrocket](https://github.com/jimbojsb/launchrocket)，来管理通过brew安装的service。
+
+![launchrocket](images/launchrocket.png)
+
 
 ## Sudo免密码设置
 
@@ -172,10 +226,10 @@ curl https://file.io/aQbnDJ
 curl --data "text=this is a secret pw" https://file.io
 {"success":true,"key":"pgiPc2","link":"https://file.io/pgiPc2","expiry":"14 days"}
 
-$ curl https://file.io/pgiPc2
+curl https://file.io/pgiPc2
 this is a secret pw
 
-$ curl https://file.io/pgiPc2
+curl https://file.io/pgiPc2
 {"success":false,"error":404,"message":"Not Found"}
 ```
 
