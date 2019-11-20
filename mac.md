@@ -7,7 +7,7 @@
 
 * [Mac开发前需做的系统设置](#Mac开发前需做的系统设置)
 * [必装软件清单](#必装软件清单)
-* [如何安装Homebrew与使用](#如何安装Homebrew与使用)
+* [brew](#brew)
 * [iTerm2](#iTerm2)
 * [ohmyzsh](#ohmyzsh)
 * [Sudo免密码设置](#Sudo免密码设置)
@@ -68,7 +68,7 @@
 |The Unarchiver|`*`|https://theunarchiver.com/ 解压工具|
 
 
-## 如何安装Homebrew与使用
+## brew
 
 Homebrew:包管理工具可以让你安装和更新程序变得更方便，是目前在OS X系统中最受欢迎的包管理工具。
 类似于centos下的yum，可以很方便地进行安装/卸载/更新各种软件包。
@@ -198,7 +198,7 @@ brew cask alfred link
 * 在`Profiles -> Text`改变游标(cursor)文字和颜色，随个人喜好。
 
 
-## OhMyZSH
+## ohmyzsh
 
 
 
