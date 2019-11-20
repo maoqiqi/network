@@ -68,17 +68,26 @@
 ## 如何安装Homebrew与使用
 
 Homebrew:包管理工具可以让你安装和更新程序变得更方便，是目前在OS X系统中最受欢迎的包管理工具。
+类似于centos下的yum，可以很方便地进行安装/卸载/更新各种软件包。
+
+官网:https://brew.sh/
 
 ### 安装
 
+`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
 ### 基本使用
 
-* `brew install <package_name>`:安装一个包
 * `brew update`:更新Homebrew在服务器端上的包目录
+* `brew install <package_name>`:安装
+* `brew upgrade <package_name>`:更新
+* `brew remove`:卸载
 * `brew outdated`:查看你的包是否需要更新
-* `brew upgrade <package_name>`:更新包
 * `brew cleanup`:Homebrew将会把老版本的包缓存下来，以便当你想回滚至旧版本时使用。但这是比较少使用的情况，当你想清理旧版本的包缓存时，可以运行。
-* `brew list --versions`:查看你安装过的包列表(包括版本号)
+* `brew list`:列出当前安装的软件
+* `brew list --versions`:列出当前安装的软件(包括版本号)
+* `brew search <package_name>`:查询与`package_name`相关的可用软件
+* `brew info <package_name>`:查询`package_name`的安装信息
 
 ### Cask
 
