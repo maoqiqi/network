@@ -1,5 +1,7 @@
 # Mac开发配置手册
 
+《Mac开发配置手册》如何让一部全新的MacBook快速完成开发环境配置。
+
 
 ## 目录
 
@@ -61,6 +63,27 @@
 |sequel pro|`*`|http://sequelpro.com/ 数据库管理工具|
 |switchhosts|`*`|https://github.com/oldj/SwitchHosts host管理工具|
 |The Unarchiver|`*`|https://theunarchiver.com/ 解压工具|
+
+
+## 如何安装Homebrew与使用
+
+Homebrew:包管理工具可以让你安装和更新程序变得更方便，是目前在OS X系统中最受欢迎的包管理工具。
+
+### 安装
+
+### 基本使用
+
+* `brew install <package_name>`:安装一个包
+* `brew update`:更新Homebrew在服务器端上的包目录
+* `brew outdated`:查看你的包是否需要更新
+* `brew upgrade <package_name>`:更新包
+* `brew cleanup`:Homebrew将会把老版本的包缓存下来，以便当你想回滚至旧版本时使用。但这是比较少使用的情况，当你想清理旧版本的包缓存时，可以运行。
+* `brew list --versions`:查看你安装过的包列表(包括版本号)
+
+### Cask
+
+你已经感受到了使用 Homebrew 安装命令行程序的便利。
+那么接下来，我们将通过Homebrew Cask优雅、简单、快速的安装和管理OS X图形界面程序，比如Google Chrome和Dropbox。
 
 
 ## Sudo免密码设置
