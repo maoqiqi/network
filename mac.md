@@ -1,6 +1,15 @@
 # Mac开发配置手册
 
 
+## 目录
+
+* [Mac开发前需做的系统设置](#Mac开发前需做的系统设置)
+* [必装软件清单](#必装软件清单)
+* [Sudo免密码设置](#Sudo免密码设置)
+* [临时上传下载文件](#临时上传下载文件)
+* [About](#About)
+* [License](#License)
+
 ## Mac开发前需做的系统设置
 
 ### 系统设置
@@ -46,9 +55,9 @@
 |brew|`*`|https://brew.sh/|
 |iTerm2|`*`|https://iterm2.com/|
 |ohmyzsh|`*`|https://ohmyz.sh/|
-|git|`*`|brew install git|
-|redis|`>3.*`|brew install redis|
-|nginx|`>1.10`|brew install nginx 如果安装docker环境可不装|
+|git|`*`|`brew install git`|
+|redis|`>3.*`|`brew install redis`|
+|nginx|`>1.10`|`brew install nginx` 如果安装docker环境可不装|
 |sequel pro|`*`|http://sequelpro.com/ 数据库管理工具|
 |switchhosts|`*`|https://github.com/oldj/SwitchHosts host管理工具|
 |The Unarchiver|`*`|https://theunarchiver.com/ 解压工具|
@@ -100,4 +109,35 @@ this is a secret pw
 
 $ curl https://file.io/pgiPc2
 {"success":false,"error":404,"message":"Not Found"}
+```
+
+
+## About
+
+* **作者**：March
+* **邮箱**：fengqi.mao.march@gmail.com
+* **头条**：https://toutiao.io/u/425956/subjects
+* **简书**：https://www.jianshu.com/u/02f2491c607d
+* **掘金**：https://juejin.im/user/5b484473e51d45199940e2ae
+* **CSDN**：http://blog.csdn.net/u011810138
+* **SegmentFault**：https://segmentfault.com/u/maoqiqi
+* **StackOverFlow**：https://stackoverflow.com/users/8223522
+
+
+## License
+
+```
+   Copyright 2019 maoqiqi
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
 ```
