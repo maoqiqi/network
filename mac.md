@@ -76,6 +76,37 @@ Homebrew:包管理工具可以让你安装和更新程序变得更方便，是�
 
 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
+#### 安装并更改源
+
+在Mac上安装brew时，如果使用官方推荐的方式，会耗费很长时间，并且也不一定能成功。
+
+将安装源换成国内源
+
+* 将brew的install文件下载本地
+  `curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install >> brew_install`
+* 修改install文件的镜像源
+  vim brew_install`
+* 将brew_install文件里面的两行代码替换掉
+
+  待替换的代码为：
+  
+  ```
+  BREW_REPO = "https://github.com/Homebrew/brew".freeze
+  CORE_TAP_REPO = "https://github.com/Homebrew/homebrew-core".freeze
+  ```
+  
+  替换为：
+  
+  ```
+  BREW_REPO = "git://mirrors.ustc.edu.cn/brew.git".freeze
+  CORE_TAP_REPO = "git://mirrors.ustc.edu.cn/homebrew-core.git".freeze
+  ```
+  
+  修改完成之后保存好修改后的brew_install文件。
+  
+* 安装
+  `/usr/local/bin/ruby ~/brew_install`
+
 ### 基本使用
 
 * `brew update`:更新Homebrew在服务器端上的包目录
