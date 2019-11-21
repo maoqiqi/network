@@ -73,8 +73,6 @@
 Homebrew:包管理工具可以让你安装和更新程序变得更方便，是目前在OS X系统中最受欢迎的包管理工具。
 类似于centos下的yum，可以很方便地进行安装/卸载/更新各种软件包。
 
-官网:https://brew.sh/
-
 ### 安装
 
 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
@@ -200,6 +198,41 @@ brew cask alfred link
 
 ## ohmyzsh
 
+安装zsh，zsh的功能极其强大，只是配置过于复杂,通过oh-my-zsh可以很快配置zsh。其中Env.sh文件用于维护别名(aliases)，输出(exports)和路径改变(path changes)等等，以免影响`~/.zshrc`。
+
+使用brew完成zsh和zsh completions的安装:`brew install zsh zsh-completions`
+
+安装完成后，在/bin目录下会多出一个zsh的文件。
+
+> Mac系统默认使用dash作为终端，可以使用命令修改默认使用zsh:
+
+```
+chsh -s /bin/zsh
+```
+
+如果想修改回默认dash，同样使用chsh命令即可：
+
+```
+chsh -s /bin/bash
+```
+
+> 查看系统当前使用的shell:`echo $SHELL`
+
+> 查看系统是否安装了zsh:`cat /etc/shells`
+
+安装oh-my-zsh方法有两种，可以使用curl或wget，看自己环境或喜好：
+
+```
+# curl 安装方式
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+```
+# wget 安装方式
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```
+
+卸载oh-my-zsh，在命令行输入如下命令，回车即可:`uninstall_oh_my_zsh`
 
 
 
