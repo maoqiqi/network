@@ -10,6 +10,8 @@
 * [brew](#brew)
 * [iTerm2](#iTerm2)
 * [ohmyzsh](#ohmyzsh)
+  * [编辑zshrc文件](#编辑zshrc文件)
+  * [安装配色方案](#安装配色方案)
   * [安装代码高亮插件](#安装代码高亮插件)
   * [安装代码补全插件](#安装代码补全插件)
 * [Sudo免密码设置](#Sudo免密码设置)
@@ -234,16 +236,18 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 
 卸载oh-my-zsh，在命令行输入如下命令，回车即可:`uninstall_oh_my_zsh`
 
-### 设置
+### 编辑zshrc文件
 
 ```
+# 设置主题
 ZSH_THEME="agnoster"
 
+# 设置别名
 alias zshconfig="vim ~/.zshrc"
 alias envconfig="vim ~/.env"
 alias ohmyzsh="vim ~/.oh-my-zsh"  
 
-# hidden "user@hostname"
+# 隐藏"user@hostname"
 prompt_context() {}
 ```
 
@@ -260,7 +264,10 @@ cd ..
 rm -rf fonts
 ```
 
-打开`iTerm2 -> Preferences -> Profiles -> Text -> Font`选择`Meslo`字体。
+安装好字体库之后，我们来设置iTerm2的字体，具体的操作是:
+打开`iTerm2 -> Preferences -> Profiles -> Text`,在Font区域选中`Change Font`，然后找到`Meslo`字体。
+
+选择`Meslo`字体。
 
 ### 安装配色方案
 
