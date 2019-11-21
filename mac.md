@@ -202,8 +202,6 @@ brew cask alfred link
 
 使用brew完成zsh和zsh completions的安装:`brew install zsh zsh-completions`
 
-安装完成后，在/bin目录下会多出一个zsh的文件。
-
 > Mac系统默认使用dash作为终端，可以使用命令修改默认使用zsh:
 
 ```
@@ -234,6 +232,43 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 
 卸载oh-my-zsh，在命令行输入如下命令，回车即可:`uninstall_oh_my_zsh`
 
+
+### 安装代码高亮插件
+
+```
+cd ~/.oh-my-zsh/custom/plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+vim ~/.zshrc
+```
+
+这时我们再次打开zshrc文件进行编辑。找到plugins，此时plugins中应该已经有了git，我们需要把高亮插件也加上：
+
+```
+plugins=(git zsh-syntax-highlighting)
+```
+
+> 请务必保证插件顺序，`zsh-syntax-highlighting`必须在最后一个。
+
+执行命令使刚才的修改生效:`source ~/.zshrc`
+
+### 安装代码补全插件
+
+跟代码高亮的安装方式一样，这也是一个zsh的插件，叫做`zsh-autosuggestion`，用于命令建议和补全。
+
+
+```
+cd ~/.oh-my-zsh/custom/plugins/
+git clone https://github.com/zsh-users/zsh-autosuggestions
+vim ~/.zshrc
+```
+
+同上找到plugins，把代码补全插件加上：
+
+```
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+```
+
+执行命令使刚才的修改生效:`source ~/.zshrc`
 
 
 ## Sudo免密码设置
