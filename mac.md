@@ -14,6 +14,7 @@
   * [安装配色方案](#安装配色方案)
   * [安装代码高亮插件](#安装代码高亮插件)
   * [安装代码补全插件](#安装代码补全插件)
+* [git](#git)
 * [Sudo免密码设置](#Sudo免密码设置)
 * [临时上传下载文件](#临时上传下载文件)
 * [About](#About)
@@ -319,6 +320,41 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 执行命令使刚才的修改生效:`source ~/.zshrc`
 
 > 推荐一张背景图:`http://wx1.sinaimg.cn/large/81f8a509gy1fnjdvkkwgoj20zk0m8ak8.jpg`
+
+![背景图](http://wx1.sinaimg.cn/large/81f8a509gy1fnjdvkkwgoj20zk0m8ak8.jpg)
+
+
+## git
+
+作为一名开发者怎么可能没有Git呢? 我们马上就来安装：
+
+```
+brew install git
+```
+
+好的，现在我们来测试一下Git是否安装完好：
+
+```
+git --version
+```
+
+接着，我们将定义你的Git帐号(与你在GitHub使用的用户名和邮箱一致)
+
+```
+git config --global user.name "Your Name Here"
+git config --global user.email "your_email@youremail.com"  
+```
+
+这些配置信息将会添加进`~/.gitconfig`文件中。
+
+推荐使用HTTPS方法(另一个是SSH)，将你的代码推送到Github上的仓库。
+如果你不想每次都输入用户名和密码的话，可以按照此[描述](https://help.github.com/en/github/getting-started-with-github/set-up-git)说的那样，运行：
+
+```
+git config --global credential.helper osxkeychain
+```
+
+此外，如果你打算使用 SSH 方式，可以参考此[链接](https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh).
 
 
 ## Sudo免密码设置
