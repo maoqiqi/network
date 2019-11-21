@@ -1,0 +1,388 @@
+source env.prod
+keys *
+java -classpath ".:../*" test.ReadFileMain
+javac test.ReadFileMain
+javac ReadFileMain
+javac test.ReadFileMain.java
+cd ../src/test
+javac ReadFileMain.java
+javac ".:../*" test/ReadFileMain.java
+java -classpath ".:../libs/*" test/ReadFileMain.java
+java -classpath ".:../libs/*" test.ReadFileMain.java
+javac -classpath ".:../libs/*" test.ReadFileMain.java
+javac ".:../*" test.ReadFileMain.java
+java -classpath ".:../*" test.ReadFileMain AA BB CC
+pwwd
+java -classpath ".:/*" test.ReadFileMain AA BB CC
+java test.ReadFileMain
+java -classpath ".:../libs/*" test.ReadFileMain
+java -classpath ".:../libs/*" test.ReadFileMain aa bb cc
+java -classpath ".:libs/*" test.ReadFileMain aa bb cc
+cd libs
+java -classpath ".:*" test.ReadFileMain aa bb cc
+java -classpath \".:../../../libs/*\" test.ReadFileMain
+java -classpath \".:libs/*\" test.ReadFileMain
+java -classpath \".:/libs/*\" test.ReadFileMain
+java -classpath \".:.libs/*\" test.ReadFileMain
+java -classpath \".:./libs/*\" test.ReadFileMain
+java -classpath \"./libs/*\" test.ReadFileMain
+java -classpath \"libs/*\" test.ReadFileMain
+java -classpath "libs/*" test.ReadFileMain
+java -classpath ../../../libs/* test.ReadFileMain
+java -classpath "../../../libs/*" test.ReadFileMain
+git commit -m "2018-08-09"
+javac -classpath ".:other/jars/*" testjms. JMSListener.java
+javac -classpath ".:other/jars/*" testjms.JMSListener.java
+javac -classpath ".:other/jars/*" JMSListener.java
+rm -rf bin
+javac -classpath ".:other/jars/*" src/testjms/JMSListener.java
+java -classpath ".:other/jars/*" src/testjms/JMSListener
+java -classpath ".:other/jars/*" testjms/JMSListener
+java -classpath ".:other/jars/*" JMSListener
+java -classpath ".:other/jars/*" testjms.JMSListener
+cd src/testjms
+java -classpath ".:../../other/jars/*" JMSListener
+java -classpath ".:../../other/jars/*" testjms.JMSListener
+javac -classpath ".:../other/jars/*" JMSListener.java
+java -classpath ".:../other/jars/*" JMSListener
+javac -classpath ".:../other/jars/*" testjms.JMSListener.java
+/Users/mac/Downloads/testjms/src/build.sh; exit
+cd testjms
+javac -classpath ".:../other/jars/*;../libs/*" testjms/JMSListener.java
+java -classpath ".:../other/jars/*:../libs/*" testjms.DataUtils
+javac -classpath ".:../other/jars/*" testjms/JMSListener.java
+cd go/csb/src/app
+sop
+git commit -m "Add simple code for Gallery."
+git commit -m "Add simple code for ExpandableListView."
+git commit -m "AdapterView"
+git commit -m "ViewFlipper"
+git commit -m "Update MineFragment and Add simple code for StackView."
+git commit -m "Add simple code for ViewFlipper."
+git commit -m "attr"
+wget http://vscdn.b0.upaiyun.com/s/testjms.zip
+rm -rf .DS_Store
+jar cf test.jar ./
+jar cvfm jms.jar manifest.mf ./src
+jar cvfm jms.jar manifest.mf ./
+jar cvfM jms.jar manifest.mf ./
+jar cvfM jms.jar manifest.mf ./src
+jar -h
+jar -c -f  jms.jar -m  manifest.mf -C ./src
+jar -f jms.jar -m  manifest.mf -C ./src -c
+jar -f jms.jar -m  manifest.mf -C ./src
+jar --create -f jms.jar -m  manifest.mf -C ./src
+jar cvfm MANIFEST.MF jms.jar ./src
+jar cvM MANIFEST.MF jms.jar ./src
+jar cfM MANIFEST.MF jms.jar ./src
+jar cvfm jms.jar MANIFEST.MF ./src
+jar cvfm jms.jar MANIFEST.MF ./
+rm -rf testjms
+jar cvf jms.jar src
+jar tf jms.jar
+jar cvf jms.jar ./src/testjms/JMSListener.class ./src/testjms/DataUtils.class
+jar cvf jms.jar MANIFEST.MF ./src/testjms/JMSListener.class ./src/testjms/DataUtils.class
+jar cvfm jms.jar MANIFEST.MF ./src/testjms/JMSListener.class ./src/testjms/DataUtils.class
+jar cvf jms.jar Test
+jar cvf jms.jar Test.java
+jar cvfm  jms.jar MANIFEST.MF Test.java
+java -classpath Test.java
+java Test.java
+jar cvfm  jms.jar MANIFEST.MF Test.class
+rm -rf Test.class
+javac src/Test.java
+jar cvfm  jms.jar MANIFEST.MF src/Test.class
+jar cvfm  jms.jar ../MANIFEST.MF test/*.class
+jar cvfm  jms.jar ../MANIFEST.MF testjms/*.calss
+jar cvfm  jms.jar ../MANIFEST.MF testjms/
+javac -classpath testjms/JMSListener.java
+javac testjms/JMSListener.java
+type jms.jar
+cd ../temp
+jar -cvf all.jar .
+rm -rf all.jar
+jar cvfm all.jar -C ./temp
+jar cvfm all.jar -C tmp .
+jar cvfm all.jar ../MANIFEST.MF -C tmp .
+jar cvfm all.jar ../MANIFEST.MF -C .
+jar cvfm all.jar ../MANIFEST.MF -C ./
+jar cvfm all.jar MANIFEST.MF -C temp
+jar cvfm MANIFEST.MF all.jar -C temp
+jar cvfm MANIFEST.MF all.jar temp
+jar cvfM all.jar
+jar cvfm ../MANIFEST.MF all.jar .
+jar cvfm MANIFEST.MF all.jar .
+rm -rf libRDMACommon.so
+jar -cvfM all.jar .
+del /F CRCCalc.jar axis.jar brokerjmsmigration.jar commons-discovery.jar commons-lang3-3.1.jar commons-logging.jar gf.javax.jms.jar gf.javax.servlet-api-3.0.1.jar gf.javax.transaction.jar gf.jaxrpc-api-osgi.jar icons.jar jedis-2.9.0.jar jide-oss-3.3.4.jar jms.jar jndi.jar migration.jar nAdminAPI.jar nAdminXMLAPI.jar nEnterpriseManager.jar nJMS.jar nP2P.jar nPlugin.jar nProtocols.jar nServer.jar netty-all.jar ninstancemanager.jar org.json.jar org.restlet.ext.json.jar org.restlet.ext.servlet.jar org.restlet.ext.wadl.jar org.restlet.ext.xml.jar org.restlet.jar protobuf-java-2.5.0.jar proton-j.jar qpid-amqp-1-0-client-jms.jar qpid-amqp-1-0-client.jar qpid-amqp-1-0-common.jar qpid-jms-client.jar saglic.jar serializer.jar slf4j-api-1.7.12.jar swing-layout-1.0.jar umStorage.jar umTransport.jar wsdl4j.jar xalan.jar xerces.jar xml-apis.jar
+jar cvfM all.jar .
+javac Test.java
+java cvfm ../MANIFEST.MF Test.class
+java cvfm ../MANIFEST.MF jms.jar Test.class
+java cvfm jms.jar ../MANIFEST.MF Test.class
+jar cvfm jms.jar ../MANIFEST.MF Test.class
+java -classpath ".:../other/jars/*" -jar jms.jar
+java -classpath ".:../other/jars/*" testjms.JMSListener
+javac -classpath ".:../other/jars/*:../libs/*" -jar jms.jar
+java -classpath ".:../other/jars/*:../libs/*" -jar jms.jar
+java -Xbootclasspath/a ".:../other/jars/*:../libs/*" -jar jms.jar
+jar xvf lib/CRCCalc.jar lib/axis.jar lib/brokerjmsmigration.jar lib/commons-discovery.jar lib/commons-lang3-3.1.jar lib/commons-logging.jar lib/gf.javax.jms.jar lib/gf.javax.servlet-api-3.0.1.jar lib/gf.javax.transaction.jar lib/gf.jaxrpc-api-osgi.jar lib/icons.jar lib/jedis-2.9.0.jar lib/jide-oss-3.3.4.jar lib/jndi.jar lib/migration.jar lib/nAdminAPI.jar lib/nAdminXMLAPI.jar lib/nEnterpriseManager.jar lib/nJMS.jar lib/nP2P.jar lib/nPlugin.jar lib/nProtocols.jar lib/nServer.jar lib/netty-all.jar lib/ninstancemanager.jar lib/org.json.jar lib/org.restlet.ext.json.jar lib/org.restlet.ext.servlet.jar lib/org.restlet.ext.wadl.jar lib/org.restlet.ext.xml.jar lib/org.restlet.jar lib/protobuf-java-2.5.0.jar lib/proton-j.jar lib/qpid-amqp-1-0-client-jms.jar lib/qpid-amqp-1-0-client.jar lib/qpid-amqp-1-0-common.jar lib/qpid-jms-client.jar lib/saglic.jar lib/serializer.jar lib/slf4j-api-1.7.12.jar lib/swing-layout-1.0.jar lib/umStorage.jar lib/umTransport.jar lib/wsdl4j.jar lib/xalan.jar lib/
+jar cvfm jms.jar ../MANIFEST.MF testjms/DataUtils.class testjms/JMSListener.class
+javac -classpath ".:lib*" testjms/JMSListener.java
+jar cvfm jms.jar ../MANIFEST.MF testjms/DataUtils.class testjms/JMSListener.class
+jar -xvf lib/CRCCalc.jar lib/axis.jar lib/brokerjmsmigration.jar lib/commons-discovery.jar lib/commons-lang3-3.1.jar lib/commons-logging.jar lib/gf.javax.jms.jar lib/gf.javax.servlet-api-3.0.1.jar lib/gf.javax.transaction.jar lib/gf.jaxrpc-api-osgi.jar lib/icons.jar lib/jedis-2.9.0.jar lib/jide-oss-3.3.4.jar lib/jndi.jar lib/migration.jar lib/nAdminAPI.jar lib/nAdminXMLAPI.jar lib/nEnterpriseManager.jar lib/nJMS.jar lib/nP2P.jar lib/nPlugin.jar lib/nProtocols.jar lib/nServer.jar lib/netty-all.jar lib/ninstancemanager.jar lib/org.json.jar lib/org.restlet.ext.json.jar lib/org.restlet.ext.servlet.jar lib/org.restlet.ext.wadl.jar lib/org.restlet.ext.xml.jar lib/org.restlet.jar lib/protobuf-java-2.5.0.jar lib/proton-j.jar lib/qpid-amqp-1-0-client-jms.jar lib/qpid-amqp-1-0-client.jar lib/qpid-amqp-1-0-common.jar lib/qpid-jms-client.jar lib/saglic.jar lib/serializer.jar lib/slf4j-api-1.7.12.jar lib/swing-layout-1.0.jar lib/umStorage.jar lib/umTransport.jar lib/wsdl4j.jar lib/xalan.jar lib/xerces.jar lib/xml-apis.jar
+jar -cvfm all.jar ../MANIFEST.MF lib
+jar tvf jms.jar
+jar tvf lib/axis.jar
+jar xvf jms.jar
+rm -rf libRDMAll
+jar xvf CRCCalc.jar axis.jar brokerjmsmigration.jar commons-discovery.jar commons-lang3-3.1.jar commons-logging.jar gf.javax.jms.jar gf.javax.servlet-api-3.0.1.jar gf.javax.transaction.jar gf.jaxrpc-api-osgi.jar icons.jar jedis-2.9.0.jar jide-oss-3.3.4.jar jms.jar jndi.jar migration.jar nAdminAPI.jar nAdminXMLAPI.jar nEnterpriseManager.jar nJMS.jar nP2P.jar nPlugin.jar nProtocols.jar nServer.jar netty-all.jar ninstancemanager.jar org.json.jar org.restlet.ext.json.jar org.restlet.ext.servlet.jar org.restlet.ext.wadl.jar org.restlet.ext.xml.jar org.restlet.jar protobuf-java-2.5.0.jar proton-j.jar qpid-amqp-1-0-client-jms.jar qpid-amqp-1-0-client.jar qpid-amqp-1-0-common.jar qpid-jms-client.jar saglic.jar serializer.jar slf4j-api-1.7.12.jar swing-layout-1.0.jar umStorage.jar umTransport.jar wsdl4j.jar xalan.jar xerces.jar xml-apis.jar
+jar xvf axis.jar
+jar xvf lib/*.jar
+jar xvf *.jar
+jar xvf "xerces.jar"
+jar xvf slf4j-api-1.7.12.jar xml-apis.jar
+unzip xml-apis.jar
+unzip *.jar
+unzip -x CRCCalc.jar axis.jar brokerjmsmigration.jar commons-discovery.jar commons-lang3-3.1.jar commons-logging.jar gf.javax.jms.jar gf.javax.servlet-api-3.0.1.jar gf.javax.transaction.jar gf.jaxrpc-api-osgi.jar icons.jar jedis-2.9.0.jar jide-oss-3.3.4.jar jms.jar jndi.jar migration.jar nAdminAPI.jar nAdminXMLAPI.jar nEnterpriseManager.jar nJMS.jar nP2P.jar nPlugin.jar nProtocols.jar nServer.jar netty-all.jar ninstancemanager.jar org.json.jar org.restlet.ext.json.ja
+jar cvfm jms.jar ../MANIFEST.MF ./
+jar cvfm jms.jar ../MANIFEST.MF ./lib/*.class
+jar cvfm jms.jar ../MANIFEST.MF ./lib/
+jar cvfm jms.jar ../MANIFEST.MF ./lib/javac -classpath ".:lib/*" testjms/JMSListener.java
+jar cvfm jms.jar ../MANIFEST.MF testjms/.class
+unzip "lib/*.jar"
+rm
+jar cvfm jms.jar ../MANIFEST.MF lib/
+rm -rf __MACOSX
+jar cvfm all.jar ../MANIFEST.MF lib
+javac -classpath ".:lib/*" testjms/JMSListener.java
+java -jar jms.jar
+cp jms.jar lib
+cd lib
+jar tvf all.jar
+rm lib
+rm rf lib
+rm -rf lib
+cp jms.jar temp
+cp ../libs/* temp
+cp ../other/jars/* temp
+unzip "*.jar"
+rm -rf *.jar
+jar cvfm all.jar ../../MANIFEST.MF .
+rm -rf jms.jar
+chmod +x ./build.sh
+java -jar all.jar
+cd ../src
+java -classpath ".:../other/jars/*:../libs/*" testjms.JMSListener
+which jre
+cd /Library/Java/JavaVirtualMachines
+/Users/mac/Downloads/jre-10.0.2_osx-x64_bin.dmg
+which Java 10.0.2
+which Java
+cd usr/bin
+whereis java
+cd ~/Downloads/testjms
+java testjms.Test
+java testjms.Test Staging
+java testjms.Test Production
+javac testjms/Test.java
+java testjms.Test stating
+java testjms.Test staging
+jar cvfm test.jar ../MANIFEST.MF testjms/Test.class
+java -jar test.jar
+jar cvfm test.jar ../MANIFEST.MF testjms/Test.class testjms/Config.class testjms/ConfigBean.class
+java -jar test.jar staging
+java -jar bin/all.jar
+java -jar bin/all.jar staging
+build.sh
+java -jar bin/all.jar production
+java -jar all.jar staging
+$KSTOREPWD=android
+echo $KSTOREPWD
+keytool -genkey -v -keystore my.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my_alias
+keytool -list -v -keystore my.jks
+zipalign -v -p 4 ~/AndroidSign/app/build/outputs/apk/personal/release/app-personal-release-unsigned.apk app-personal-release-unsigned-aligned.apk
+apksigner sign --ks ~/AndroidSign/my.jks --out app-personal-release-unsigned-aligned.apk app-personal-release.apk
+apksigner sign --ks ~/AndroidSign/my.jks --out app-personal-release.apk app-personal-release-unsigned-aligned.apk
+apksigner verify app-personal-release.apk
+apksigner verify app-personal-release-unsigned-aligned.apk
+apksigner verify ~/AndroidSign/app/build/outputs/apk/personal/release/app-personal-release-unsigned.apk
+gradlew installPersonalDebug
+gradlew installPersonalRelease
+gradlew installRelease
+gradlew assemblePersonalRelease
+emulator -avd 4.7_WXGA_API_28
+gradlew assemblePersonalDebug
+adb install -t  ~/AndroidSign/app/build/outputs/apk/personal/debug/app-personal-debug.apk
+adb install ~/AndroidSign/app/build/outputs/apk/personal/debug/app-personal-debug.apk
+javac -classpath ".:../libs/*"
+javac -classpath ".:../libs/*" com.verypay.examples.loop.Sandbox_3
+javac -classpath ".:../libs/*" com.verypay.examples.loop.Sandbox_3.java
+brew install rename
+./gradlew clean build bintrayUpload -PbintrayUser=maoqiqi -PbintrayKey=6715cfd06774d3c0ca614ea9c348fee82ec2db9d -PdryRun=false
+./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
+chmod +x gradlew
+然后就行了
+cd /Applications/Android\ Studio.app/Contents/gradle/gradle-4.6/bin/gradle
+/usr/libexec/java_home -V
+./gradlew build
+./gradlew clean build bintrayUpload -PbintrayUser=maoqiqi -PbintrayKey=6715cfd06774d3c0ca614ea9c348fee82ec2db9d -PdryRun=false
+brew install nginx
+echo $PATH
+mv /Users/mac/Downloads/srv /usr/local/bin/
+srv
+chmod +x /usr/local/bin/srv
+srv
+srv --dir
+srv --dir=/Users/mac/wxfacepay-demo-imagefacesign/app/build/outputs/apk/debug/
+srv --h
+./gradlew bintrayUpload -Pbintray_user=maoqiqi
+chmod +x /usr/local/bin/srv
+srv --dir=/Users/mac/wxfacepay-demo-imagefacesign/app/build/outputs/apk/debug
+srv --dir=/Users/mac/FacePay/app/build/outputs/apk/debug
+srv --dir=/Users/mac/
+java -jar ./bin/all.jar staging
+javac -classpath ".:../other/jars/*:../libs/*" testjms/JMSListener.java
+jar cvfm jms.jar ../MANIFEST.MF testjms/*.class
+java -jar ./bin/all.jar staging
+java -jar ./bin/all.jar staging
+git push origin master --force
+git log --name-status
+git show
+git tag
+git tag -a v1.0.0 -m 'my versionn 1.0.0'
+git show v1.0.0
+git push origin v1.0.0
+git tag -a  -m 'my versionn 1.0.0'
+git tag -s v1.1.0 -m 'Customize lazy load fragment library.'
+git tag -a v1.1.0 -m 'Customize lazy load fragment library.'
+git push origin v1.1.0
+git diff --color -q
+git diff --color -q mvvm-databinding mvvm-live
+git push origin master --force
+git push -u origin master
+git push origin master --force
+pwd
+mv /Users/mac/Library/Application Support/Google/Chrome/Default/Extensions/gocklaboggjfkolaknpbhddbaopcepfp/2.3.0_0.crx ~/temp
+mv 2.5.20_0.crx ~/temp
+git branch -a
+git checkout todo-mvvm-live
+ssh-keygen -t rsa -C fengqi.mao.march@gamil.com
+cp id_rsa_travis_ci /Users/mac/notes
+cp id_rsa_travis_ci.pub /Users/mac/notes
+gem install travis
+travis
+gem install travis
+gem source
+gem source -a http://rubygems.org
+gem install travis
+sudo gem install travis
+travis encrypt-file id_rsa_travis_ci
+travis login
+travis login --auto
+travis report
+travis login --pro
+travis report --pro
+brew install travis
+travis version
+sudo gem uninstall travis
+brew install ruby
+gem install travis
+travis version
+sudo gem install travis
+travis version
+travis encrypt-file id_rsa_travis_ci
+travis login
+travis encrypt-file id_rsa_travis_ci
+travis encrypt-file id_rsa_travis_ci --add
+travis encrypt TOKEN=cb0738c5eb28cbe1260d95530a308ec5dde4cc33 --add
+ssh-agent -s
+git checkout HEAD
+git push origin master --force
+cd android-architecture
+git status
+git branch -a
+git checkout todo-mvp-rxjava
+git difftool -d todo-mvp
+git checkout todo-mvp
+git checkout todo-mvp-rxjava
+git difftool -d todo-mvp
+git checkout todo-mvp
+git difftool -d todo-mvp-rxjava
+git diff todo-mvp todo-mvp-rxjava
+git diff todo-mvp todo-mvp-rxjava --stat
+git status
+git log --name-status
+git config --global user.name march
+git config --global user.email march.mao@verystar.cn
+cd /usr/local/go/bin
+sudo vim ~/.bash_profile
+echo $PATH
+echo $ANDROID_HOME
+echo $SHELL
+cd /etc/
+/usr/libexec/java_home -V
+java -version
+env
+echo $CLASSPATH
+source ~/.bash_profile
+echo $PATH
+echo $CLASSPATH
+echo $JAVA_HOME
+make mod vendor
+cd redis-3.2.1/src
+redis-server
+cd redis-3.2.1/src
+redis-cli
+git log --name-status
+vim /etc/hosts
+sudo vim /etc/hosts
+go get -u
+go make mod
+go mod vendor
+./app http --addr=:9999
+echo PUB_HOSTED_URL
+echo $PUB_HOSTED_URL
+export export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+echo $PUB_HOSTED_URL
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+echo $FLUTTER_STORAGE_BASE_URL
+echo $PATH
+env
+cd flutter
+open ./
+unzip ~/Downloads/flutter_macos_v1.7.8+hotfix.4-stable.zip
+export PATH=`pwd`/flutter/bin:$PATH
+echo $PATH
+flutter doctor
+flutter channel
+export PATH=`pwd`/flutter/bin:$PATH
+flutter channel
+mkdir flutter
+rm -rf go1.12.6.darwin-amd64.tar.gz
+sudo rm -rf go1.12.6.darwin-amd64.tar.gz
+sudo tar zxvf go1.13.darwin-amd64.tar.gz
+go env
+go mod tidy
+who
+whomi
+history
+chmod 777 ./go.sh
+go test -test.run TestCmdJava
+go run main.go t=job
+make conf
+go mod vendor
+make upgrade
+ssh verystar
+go get -u
+ungoproxy
+proxy
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew --version
+vim .zshrc
+sudo -i
+sudo scutil --set HostName march
+echo $SHELL
+uninstall_oh_my_zsh
+ls > aaa.txt

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"network"
+	"time"
 )
 
 var CheckHandler network.HandlerFunc = func(c *network.Context) network.Response {
@@ -41,7 +42,16 @@ func Route(r *gin.Engine) {
 }
 
 func main() {
-	r := gin.Default()
-	Route(r)
-	_ = r.Run(":8080")
+	//r := gin.Default()
+	//Route(r)
+	//_ = r.Run(":8080")
+
+	currentTime := time.Now()
+	fmt.Println(currentTime.AddDate(0, 0, 7))
+	fmt.Println(currentTime.AddDate(0, 0, 7))
+
+	a := &struct {
+		t time.Time
+	}{t: currentTime.AddDate(0, 0, 7)}
+	fmt.Println(a.t)
 }

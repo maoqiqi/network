@@ -1,0 +1,5 @@
+[user]
+	name = march
+	email = march.mao@verystar.cn
+[url "git@git.verystar.cn:"]
+	insteadof = https://git.verystar.cn/
