@@ -234,6 +234,34 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 
 卸载oh-my-zsh，在命令行输入如下命令，回车即可:`uninstall_oh_my_zsh`
 
+### 设置
+
+```
+ZSH_THEME="agnoster"
+
+alias zshconfig="vim ~/.zshrc"
+alias envconfig="vim ~/.env"
+alias ohmyzsh="vim ~/.oh-my-zsh"  
+
+# hidden "user@hostname"
+prompt_context() {}
+```
+
+> 注意：许多主题需要安装[Powerline Fonts](https://github.com/powerline/fonts)才能正确呈现。
+
+```
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+```
+
+打开`iTerm2 -> Preferences -> Profiles -> Text -> Font`选择`Meslo`字体。
+
 ### 安装配色方案
 
 ```
@@ -268,7 +296,6 @@ plugins=(git zsh-syntax-highlighting)
 ### 安装代码补全插件
 
 跟代码高亮的安装方式一样，这也是一个zsh的插件，叫做`zsh-autosuggestion`，用于命令建议和补全。
-
 
 ```
 cd ~/.oh-my-zsh/custom/plugins/
