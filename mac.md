@@ -318,6 +318,8 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 执行命令使刚才的修改生效:`source ~/.zshrc`
 
+> 推荐一张背景图:`http://wx1.sinaimg.cn/large/81f8a509gy1fnjdvkkwgoj20zk0m8ak8.jpg`
+
 
 ## Sudo免密码设置
 
