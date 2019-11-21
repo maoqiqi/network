@@ -10,6 +10,8 @@
 * [brew](#brew)
 * [iTerm2](#iTerm2)
 * [ohmyzsh](#ohmyzsh)
+  * [安装代码高亮插件](#安装代码高亮插件)
+  * [安装代码补全插件](#安装代码补全插件)
 * [Sudo免密码设置](#Sudo免密码设置)
 * [临时上传下载文件](#临时上传下载文件)
 * [About](#About)
@@ -232,6 +234,18 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 
 卸载oh-my-zsh，在命令行输入如下命令，回车即可:`uninstall_oh_my_zsh`
 
+### 安装配色方案
+
+```
+cd ~/.oh-my-zsh/custom/plugins
+git clone https://github.com/altercation/solarized
+cd solarized/iterm2-colors-solarized/
+open .
+```
+
+在打开的finder窗口中，双击`Solarized Dark.itermcolors`和`Solarized Light.itermcolors`即可安装明暗两种配色：
+
+打开`iTerm2 -> Preferences -> Profiles -> Colors -> Color Presets`中根据个人喜好选择。
 
 ### 安装代码高亮插件
 
