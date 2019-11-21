@@ -9,11 +9,14 @@
 * [必装软件清单](#必装软件清单)
 * [brew](#brew)
 * [iTerm2](#iTerm2)
+  * [常用快捷命令](#常用快捷命令)
+  * [给iTerm2中Vim配色](#给iTerm2中Vim配色)
 * [ohmyzsh](#ohmyzsh)
   * [编辑zshrc文件](#编辑zshrc文件)
   * [安装配色方案](#安装配色方案)
   * [安装代码高亮插件](#安装代码高亮插件)
-  * [安装代码补全插件](#安装代码补全插件)
+  * [安装自动提示命令插件](#安装自动提示命令插件)
+  * [终端神器一键配置](#终端神器一键配置)
 * [git](#git)
 * [Sudo免密码设置](#Sudo免密码设置)
 * [临时上传下载文件](#临时上传下载文件)
@@ -227,6 +230,20 @@ brew cask alfred link
 * 下载`Solarized dark iterm colors`，在`Profiles -> Default -> Colors -> Load Presets`将其导入，作为默认颜色。
 * 在`Profiles -> Text`改变游标(cursor)文字和颜色，随个人喜好。
 
+### 常用快捷命令
+
+|命令|说明|
+|:-----|:-----|
+|`command + t`|新建标签|
+|`command + w`|关闭标签|
+|`command + 数字` `command + 左右方向键`|切换标签|
+|`command + d`|垂直分屏|
+|`command + shift + d`|水平分屏|
+|`command + shift + h`|查看剪贴板历史|
+|`ctrl + u`|清除当前行|
+
+### 给iTerm2中Vim配色
+
 
 ## ohmyzsh
 
@@ -275,9 +292,11 @@ alias zshconfig="vim ~/.zshrc"
 alias envconfig="vim ~/.env"
 alias ohmyzsh="vim ~/.oh-my-zsh"  
 
-# 隐藏"user@hostname"
+# 隐藏用户名和主机名(user@hostname)
 prompt_context() {}
 ```
+
+oh-my-zsh主题列表:https://github.com/robbyrussell/oh-my-zsh/wiki/themes
 
 > 注意：许多主题需要安装[Powerline Fonts](https://github.com/powerline/fonts)才能正确呈现。
 
@@ -293,9 +312,7 @@ rm -rf fonts
 ```
 
 安装好字体库之后，我们来设置iTerm2的字体，具体的操作是:
-打开`iTerm2 -> Preferences -> Profiles -> Text`,在Font区域选中`Change Font`，然后找到`Meslo`字体。
-
-选择`Meslo`字体。
+打开`iTerm2 -> Preferences -> Profiles -> Text`,在Font区域选中`Change Font`，然后找到Meslo字体。有L、M、S可选，看个人喜好：
 
 ### 安装配色方案
 
@@ -328,7 +345,7 @@ plugins=(git zsh-syntax-highlighting)
 
 执行命令使刚才的修改生效:`source ~/.zshrc`
 
-### 安装代码补全插件
+### 安装自动提示命令插件
 
 跟代码高亮的安装方式一样，这也是一个zsh的插件，叫做`zsh-autosuggestion`，用于命令建议和补全。
 
@@ -338,7 +355,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions
 vim ~/.zshrc
 ```
 
-同上找到plugins，把代码补全插件加上：
+同上找到plugins，把自动提示命令插件加上：
 
 ```
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
@@ -349,6 +366,8 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 > 推荐一张背景图:`http://wx1.sinaimg.cn/large/81f8a509gy1fnjdvkkwgoj20zk0m8ak8.jpg`
 
 ![背景图](http://wx1.sinaimg.cn/large/81f8a509gy1fnjdvkkwgoj20zk0m8ak8.jpg)
+
+### 终端神器一键配置
 
 
 ## git
