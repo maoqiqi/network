@@ -10,12 +10,12 @@
 * [brew](#brew)
 * [iTerm2](#iTerm2)
   * [常用快捷命令](#常用快捷命令)
-  * [给iTerm2中Vim配色](#给iTerm2中Vim配色)
 * [ohmyzsh](#ohmyzsh)
   * [编辑zshrc文件](#编辑zshrc文件)
   * [安装配色方案](#安装配色方案)
   * [安装代码高亮插件](#安装代码高亮插件)
   * [安装自动提示命令插件](#安装自动提示命令插件)
+  * [给iTerm2中ls配色](#给iTerm2中ls配色)
   * [终端神器一键配置](#终端神器一键配置)
 * [git](#git)
 * [Sudo免密码设置](#Sudo免密码设置)
@@ -241,8 +241,8 @@ brew cask alfred link
 |`command + shift + d`|水平分屏|
 |`command + shift + h`|查看剪贴板历史|
 |`ctrl + u`|清除当前行|
-
-### 给iTerm2中Vim配色
+|`ctrl + w`|删除光标之前的单词|
+|`ctrl + k`|删除到文本末尾|
 
 
 ## ohmyzsh
@@ -366,6 +366,10 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 > 推荐一张背景图:`http://wx1.sinaimg.cn/large/81f8a509gy1fnjdvkkwgoj20zk0m8ak8.jpg`
 
 ![背景图](http://wx1.sinaimg.cn/large/81f8a509gy1fnjdvkkwgoj20zk0m8ak8.jpg)
+
+### 给iTerm2中ls配色
+
+
 
 ### 终端神器一键配置
 
